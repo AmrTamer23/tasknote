@@ -1,12 +1,22 @@
 import React from 'react';
 import logoW from './assets/logoW.png';
 import Sidebar from './components/Sidebar';
+import Tasks from './components/Tasks';
 
 function App() {
   return (
-    <main className='flex bg-black'>
+    <div className="flex bg-[#1E1E1E]">
+
+
       <Sidebar />
-    </main>
+
+      <Tasks />
+
+
+
+
+
+    </div>
   );
 }
 
