@@ -27,6 +27,18 @@ h1, h2, h3, h4, h5, h6, p{
     border-radius: 0  0 0.5rem 0;
 }
 
+.tasks {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+.tasks.open {
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 0.1s ease-in-out, opacity 0.3s ease-in-out;
+}
 
 .disable-text-selection {
     -webkit-user-select: none; 
