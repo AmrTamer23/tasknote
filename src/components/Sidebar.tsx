@@ -7,6 +7,7 @@ import { FaAngleDown, FaAngleLeft } from 'react-icons/fa';
 import { MdTaskAlt } from 'react-icons/md';
 import { IconContext } from "react-icons";
 import '../App.css'
+import { Link, NavLink } from 'react-router-dom';
 
 
 const Sidebar = () => {
@@ -27,15 +28,21 @@ const Sidebar = () => {
 
 
                 <div className='p-5 w-52 self-center'> <img src={logoW} alt=" logo" /></div>
-                <ul className='flex flex-col items-start text-white'>
-                    <li className={menuItemStyle}>
+                <div className='flex flex-col items-start text-white'>
+
+                    <NavLink to="/" className={menuItemStyle}>
                         <MdTaskAlt size={'25'} />
                         <p className='menuLabel'>Tasks</p>
-                    </li>
-                    <li className={menuItemStyle}>
+                    </NavLink>
+
+                    <NavLink to="notes" className={menuItemStyle}>
                         <BsAsterisk size={'25'} />
+
                         <p className='menuLabel'>Notes</p>
-                    </li>
+
+                    </NavLink>
+
+
                     <li className={`${menuItemStyle} flex justify-between items-center `}
                         onClick={handleCategoryMenu}
                     >
@@ -64,7 +71,7 @@ const Sidebar = () => {
                             </li>
                         </div>
                     }
-                </ul>
+                </div>
 
 
 

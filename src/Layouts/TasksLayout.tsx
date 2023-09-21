@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { TimeOfDay } from "../utilities/timeOfDay";
-import '../App.css';
-import TaskItem from "./TaskItem";
+import TaskItem from "../components/TaskItem";
 import { FaAngleLeft, FaAngleDown, FaPlus } from "react-icons/fa";
-import FloatingButton from "./FloatingButton";
+import FloatingButton from "../components/FloatingButton";
 
-const Tasks = () => {
-
-    const [timeOfDay, setTimeOfDay] = useState(TimeOfDay());
-    useEffect(() => {
-        setTimeOfDay(TimeOfDay());
-    }, []);
+const TasksLayout = () => {
 
     const [isTodayTasksOpen, setIsTodayTasksOpen] = useState(true);
 
@@ -33,8 +27,7 @@ const Tasks = () => {
     const textFieldsStyle = 'bg-[#1E1E1E] text-white border-none px-2.5 py-5 rounded-lg text-lg cursor-pointer';
 
     return (
-        <div className="flex flex-col px-14 py-5 w-full ml-52 min-h-screen  bg-[#1E1E1E]">
-            <h1>Good {timeOfDay}!</h1>
+        <div className="flex flex-col  min-h-screen  bg-[#1E1E1E]">
             <div className={'py-12 px-24'}>
                 <span className="flex justify-between pb-3">
                     <h2 className="text-3xl font-normal self-start">Today</h2>
@@ -108,4 +101,4 @@ const Tasks = () => {
     );
 };
 
-export default Tasks;
+export default TasksLayout;
