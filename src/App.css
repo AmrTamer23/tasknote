@@ -40,9 +40,38 @@ h1, h2, h3, h4, h5, h6, p{
   transition: max-height 0.1s ease-in-out, opacity 0.3s ease-in-out;
 }
 
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+.modal-container.show {
+    opacity: 1;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
 .disable-text-selection {
     -webkit-user-select: none; 
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none; 
 }   
+

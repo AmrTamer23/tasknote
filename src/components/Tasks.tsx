@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { TimeOfDay } from "../utilities/timeOfDay";
 import '../App.css';
 import TaskItem from "./TaskItem";
-import { FaAngleLeft, FaAngleDown } from "react-icons/fa";
+import { FaAngleLeft, FaAngleDown, FaPlus } from "react-icons/fa";
+import FloatingButton from "./FloatingButton";
 
 const Tasks = () => {
 
@@ -19,8 +20,6 @@ const Tasks = () => {
         tasksSection?.classList.toggle("open");
     }
 
-
-
     const [isUpTasksOpen, setIsUpTasksOpen] = useState(true);
 
     const handleUpTasks = () => {
@@ -28,6 +27,10 @@ const Tasks = () => {
         const tasksSection = document.querySelector(".tasks.upcoming");
         tasksSection?.classList.toggle("open");
     }
+
+    const taskListsStyle = 'flex flex-col pt-3 mt-3 tasks';
+
+    const textFieldsStyle = 'bg-[#1E1E1E] text-white border-none px-2.5 py-5 rounded-lg text-lg cursor-pointer';
 
     return (
         <div className="flex flex-col px-14 py-5 w-full ml-52 min-h-screen  bg-[#1E1E1E]">
@@ -48,7 +51,7 @@ const Tasks = () => {
                     </div>
                 </span>
                 <hr />
-                <div className='flex flex-col pt-3 mt-3 tasks today'>
+                <div className={`${taskListsStyle} today`}>
                     <TaskItem taskName="Learn React And Apply" taskDue="Today" taskDesc="Wassap" />
                     <TaskItem taskName="Learn React And Apply" taskDue="Today" taskDesc="Wassap" />
                     <TaskItem taskName="Learn React And Apply" taskDue="Today" taskDesc="Wassap" />
@@ -74,7 +77,7 @@ const Tasks = () => {
                 </span>
                 <hr />
 
-                <div className="flex flex-col pt-3 tasks upcoming">
+                <div className="flex flex-col pt-3 mt-3 tasks upcoming">
                     <TaskItem taskName="Learn React And Apply" taskDue="in 2 days" taskDesc="Wassap" />
                     <TaskItem taskName="Learn React And Apply" taskDue="in 2 days" taskDesc="Wassap" />
                     <TaskItem taskName="Learn React And Apply" taskDue="in 9 days" taskDesc="Wassap" />
@@ -83,8 +86,23 @@ const Tasks = () => {
                 </div>
 
             </div>
+            <FloatingButton Icon={FaPlus} onClick={() => { }}
+                children={
+                    <>
+                        <div className="flex gap-5">
+                            <input type="text" placeholder="Task Name" className={`${textFieldsStyle} grow`} />
+                            <input
+                                type="date"
+                                placeholder="Task Due"
+                                className={textFieldsStyle}
+                                min={new Date().toISOString().split("T")[0]}
 
-
+                            />
+                        </div>
+                        <textarea placeholder="Task Description" className={`${textFieldsStyle} h-52`} />
+                    </>
+                }
+            />
         </div>
     );
 };
