@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6, p{
     opacity: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  }
+}
   
 .tasks.open {
   max-height: 1000px;
@@ -48,9 +48,9 @@ h1, h2, h3, h4, h5, h6, p{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
-  }
-  
-  .modal-container {
+}
+
+.modal-container {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -58,10 +58,6 @@ h1, h2, h3, h4, h5, h6, p{
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-
-.modal-container.show {
-    opacity: 1;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {

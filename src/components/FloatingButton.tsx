@@ -27,7 +27,7 @@ function FloatingButton(props: FloatingButtonProps) {
             </button>
             {showContainer && (
                 <div className="modal-overlay">
-                    <div className="modal-container flex flex-col gap-5 bg-[#183D3D]">
+                    <div className='modal-container show flex flex-col gap-5 bg-[#183D3D]'>
                         {props.children}
                         <button
                             className={`${buttonStyle} rounded-2xl `}

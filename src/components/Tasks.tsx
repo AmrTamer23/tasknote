@@ -20,7 +20,7 @@ const Tasks = () => {
         tasksSection?.classList.toggle("open");
     }
 
-    const [isUpTasksOpen, setIsUpTasksOpen] = useState(true);
+    const [isUpTasksOpen, setIsUpTasksOpen] = useState(false);
 
     const handleUpTasks = () => {
         setIsUpTasksOpen(!isUpTasksOpen);
@@ -51,7 +51,7 @@ const Tasks = () => {
                     </div>
                 </span>
                 <hr />
-                <div className={`${taskListsStyle} today`}>
+                <div className={`${taskListsStyle} today open`}>
                     <TaskItem taskName="Learn React And Apply" taskDue="Today" taskDesc="Wassap" />
                     <TaskItem taskName="Learn React And Apply" taskDue="Today" taskDesc="Wassap" />
                     <TaskItem taskName="Learn React And Apply" taskDue="Today" taskDesc="Wassap" />
@@ -89,6 +89,7 @@ const Tasks = () => {
             <FloatingButton Icon={FaPlus} onClick={() => { }}
                 children={
                     <>
+                        <h4 className="text-2xl self-center">Add a Task</h4>
                         <div className="flex gap-5">
                             <input type="text" placeholder="Task Name" className={`${textFieldsStyle} grow`} />
                             <input
