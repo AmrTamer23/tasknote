@@ -24,7 +24,7 @@ const Sidebar = () => {
 
     return (
         <aside className='h-screen flex fixed'>
-            <nav className='bg-[#183D3D] w-52 flex flex-col'>
+            <nav className='bg-[#222222] w-52 flex flex-col'>
 
 
                 <div className='p-5 w-52 self-center'> <img src={logoW} alt=" logo" /></div>

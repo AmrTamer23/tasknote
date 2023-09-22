@@ -11,7 +11,7 @@ interface FloatingButtonProps {
 function FloatingButton(props: FloatingButtonProps) {
 
     const containerStyle = "fixed bottom-5 right-5";
-    const buttonStyle = "bg-green-800 text-white border-none px-2.5 py-5 text-lg cursor-pointer";
+    const buttonStyle = "bg-[#4CAF50] text-white border-none px-2.5 py-5 text-lg cursor-pointer";
 
 
 

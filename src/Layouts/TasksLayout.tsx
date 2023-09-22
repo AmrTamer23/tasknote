@@ -31,10 +31,10 @@ const TasksLayout = () => {
 
     const taskListsStyle = 'flex flex-col pt-3 mt-3 tasks';
 
-    const textFieldsStyle = 'bg-[#1E1E1E] text-white border-none px-2.5 py-5 rounded-lg text-lg cursor-pointer';
+    const textFieldsStyle = 'text-white border-none px-2.5 py-5 rounded-lg text-lg cursor-pointer';
 
     return (
-        <div className="flex flex-col bg-[#1E1E1E]">
+        <div className="flex flex-col">
             <div className='py-12 px-24'>
                 <span className="flex justify-between pb-3">
                     <h2 className="text-3xl font-normal self-start">Today</h2>
@@ -92,6 +92,7 @@ const TasksLayout = () => {
                 {
                     showModal && (
                         <Modal
+                            onBackgroundClick={handleModal}
                             children={
                                 <>
                                     <h4 className="text-2xl self-center">Add a Task</h4>

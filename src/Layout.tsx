@@ -14,7 +14,7 @@ function Layout() {
   }, []);
 
   return (
-    <div className="flex bg-[#1E1E1E]">
+    <div className="flex bg-[#121212]">
       <Sidebar />
       <main className='ml-52 px-14 py-5 w-full min-h-screen '>
         <h1 className="font-semibold text-4xl">Good {timeOfDay}!</h1>

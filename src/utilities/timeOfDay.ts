@@ -4,7 +4,7 @@ export function TimeOfDay(): string {
     if (hours < 12) {
         return 'Morning'
     } else if (hours < 18) {
-        return 'Asfternoon'
+        return 'Afternoon'
     } else {
         return 'Evening'
     }
