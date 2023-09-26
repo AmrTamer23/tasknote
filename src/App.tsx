@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Sidebar from "./components/Sidebar";
 import { Outlet } from "react-router-dom";
-import { TimeOfDay } from "./utilities/timeOfDay";
+import { TimeOfDay } from "./utilities/helpers";
 
 function Layout() {
   const [timeOfDay, setTimeOfDay] = useState(TimeOfDay());

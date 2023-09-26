@@ -1,17 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Formik, FormikProps } from "formik";
-import FloatingButton from "../components/FloatingButton";
+import FloatingButton from "../components/ui/FloatingButton";
 import { FaPlus } from "react-icons/fa";
 import NoteItem from "../components/NoteItem";
-import Modal from "../components/Modal";
+import Modal from "../components/ui/Modal";
 import { NoteCategory } from "../components/NoteItem";
-
-interface noteValues {
-  noteName: string;
-  noteDesc: string;
-  noteCategory: string;
-  noteColor: string;
-}
+import useNotes from "../hooks/useNotes";
+import noteValues from "../interfaces/note";
 
 function NotesLayout() {
   const [showModal, setShowModal] = useState(false);
@@ -20,19 +15,11 @@ function NotesLayout() {
     setShowModal(!showModal);
   };
 
-  let notesJson = localStorage.getItem("notes");
-
-  let notes: noteValues[] = [];
-
-  if (!notesJson) {
-    notes = [];
-  } else {
-    notes = JSON.parse(notesJson);
-  }
+  let { notes, addNote } = useNotes();
 
   return (
     <div className="py-12 px-24 grid grid-cols-2 items-between justify-items-center align-items-center gap-5">
-      {notesJson &&
+      {notes &&
         notes.map((note, i) => {
           return (
             <NoteItem
@@ -68,32 +55,14 @@ function NotesLayout() {
                       noteColor: "#333333",
                     }}
                     onSubmit={(values) => {
-                      if (!values.noteName || !values.noteDesc) {
-                        alert("Note Must Have a Name and Content");
-                        return;
-                      }
+                      addNote({
+                        noteName: values.noteName,
+                        noteDesc: values.noteDesc,
+                        noteCategory: values.noteCategory,
+                        noteColor: values.noteColor,
+                      });
 
-                      if (!notesJson) {
-                        notes.push({
-                          noteCategory: values.noteCategory,
-                          noteColor: values.noteColor,
-                          noteDesc: values.noteDesc,
-                          noteName: values.noteName,
-                        });
-
-                        localStorage.setItem("notes", JSON.stringify(notes));
-                      } else {
-                        if (notesJson) {
-                          notes.push({
-                            noteCategory: values.noteCategory,
-                            noteColor: values.noteColor,
-                            noteDesc: values.noteDesc,
-                            noteName: values.noteName,
-                          });
-                          localStorage.setItem("notes", JSON.stringify(notes));
-                        }
-                      }
-                      handleModal();
+                      if (values.noteName && values.noteDesc) handleModal();
                     }}
                     component={noteCreationForm}
                   />

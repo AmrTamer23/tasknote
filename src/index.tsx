@@ -1,12 +1,11 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import TasksLayout from "./Layouts/TasksLayout";
+import TasksLayout from "./pages/TasksLayout";
 import reportWebVitals from "./reportWebVitals";
-import Layout from "./Layout";
+import Layout from "./App";
 import "./index.css";
-import NotesLayout from "./Layouts/NotesLayout";
-
+import NotesLayout from "./pages/NotesLayout";
 
 export default function App() {
   return (
@@ -22,7 +21,7 @@ export default function App() {
 }
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
