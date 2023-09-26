@@ -12,7 +12,7 @@ function Modal(props: ModalProps) {
   return (
     <div className={"modal-overlay "} onClick={props.onBackgroundClick}>
       <div
-        className={`modal-container show flex flex-col gap-5 bg-[#222222] w-2/6`}
+        className={`modal-container show flex flex-col gap-5 bg-[#222222] w-3/6`}
         onClick={(e) => {
           e.stopPropagation();
         }}

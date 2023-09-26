@@ -65,7 +65,7 @@ function NotesLayout() {
                       noteName: "",
                       noteDesc: "",
                       noteCategory: "",
-                      noteColor: "#4CAF50",
+                      noteColor: "#333333",
                     }}
                     onSubmit={(values) => {
                       if (!values.noteName || !values.noteDesc) {
@@ -149,10 +149,11 @@ let noteCreationForm: (props: FormikProps<noteValues>) => JSX.Element = ({
             value={values.noteColor}
             className="opacity-0 absolute inset-0 w-full h-full"
           >
-            <option value="#4CAF50 ">Green</option>
-            <option value="#FFC107">Amber</option>
-            <option value="#FF5722">Orange</option>
-            <option value="#E91E63">Pink</option>
+            <option value="#333333">Default</option>
+            <option value="#008080">Teal</option>
+            <option value="#800020">Red</option>
+            <option value="#000080">Blue</option>
+            <option value="#556B2F">Green</option>
           </select>
           <div
             className="w-6 h-6 rounded-full border border-gray-300 shadow-md cursor-pointer"

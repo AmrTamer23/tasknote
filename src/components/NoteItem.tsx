@@ -31,7 +31,7 @@ function NoteItem(props: NoteItemProps) {
         onClick={handleModal}
       >
         <h2 className="text-3xl font-semibold mb-6">{props.noteName}</h2>
-        <p className="text-xl text-gray-700 mb-6 overflow-hidden text-ellipsis max-h-28 max-w-fit">
+        <p className="text-xl text-gray-300 mb-6 overflow-hidden max-h-28 max-w-fit whitespace-pre-wrap">
           {props.noteDesc}
         </p>
         <div
@@ -46,7 +46,7 @@ function NoteItem(props: NoteItemProps) {
         <Modal
           onBackgroundClick={handleModal}
           children={
-            <div className="bg-[#444444] w-full h-auto rounded-lg overflow-hidden p-5">
+            <div className="bg-[#444444] w-full h-auto rounded-lg overflow-hidden py-5 px-10">
               <span className="flex justify-between items-center mb-5">
                 <div>
                   <h2 className={`${noteHeading}`}>{props.noteName}</h2>
@@ -65,7 +65,7 @@ function NoteItem(props: NoteItemProps) {
                   Created on: <span className="text-gray-300">12/12/2021</span>
                 </p>
               </span>
-              <p className="text-base text-gray-300 pb-5 overflow-ellipsis">
+              <p className="text-base text-gray-300 pb-5 overflow-ellipsis whitespace-pre-wrap">
                 {props.noteDesc}
               </p>
             </div>
