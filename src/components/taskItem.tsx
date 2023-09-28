@@ -11,7 +11,7 @@ const TaskItem = (props: TaskValues) => {
           <h4 className="text-xl font-normal text-white">{props.name}</h4>
           <span className="h-1.5 w-1.5 bg-[#797575] rounded-full self-center"></span>
           <h4 className="text-xl font-light text-gray-400">
-            Due In {CountdownDays(new Date(props.due))}
+            Due {CountdownDays(new Date(props.due))}
           </h4>
         </div>
         <div className="h-2/4 s">

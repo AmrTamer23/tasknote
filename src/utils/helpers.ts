@@ -18,6 +18,6 @@ export function CountdownDays(date: Date): String {
         return 'Today';
     }else
     {
-        return days.toString().concat(' days');
+        return 'In '.concat(days.toString()).concat(' days');
     }
 }
