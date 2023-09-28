@@ -91,7 +91,6 @@ function useLocalStorage() {
     }
     return categories[categories.length - 1].id;
   };
-  ``;
 
   const lastTaskId = () => {
     if (tasks.length === 0) {

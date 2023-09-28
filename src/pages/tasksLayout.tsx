@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TaskItem from "../components/taskItem";
 import { FaAngleLeft, FaAngleDown, FaPlus } from "react-icons/fa";
 import FloatingButton from "../components/ui/floatingButton";
@@ -30,7 +30,7 @@ const TasksLayout = () => {
 
   const handleModal = () => setShowModal(!showModal);
 
-  const { tasks, addTask, lastTaskId } = useLocalStorage();
+  const { tasks, addTask, lastTaskId, deleteTask } = useLocalStorage();
 
   const todayTasks = tasks.filter((task) => {
     if (CountdownDays(new Date(task.due)) === "Today") return task;
@@ -45,12 +45,11 @@ const TasksLayout = () => {
   return (
     <div className="flex flex-col">
       <div className="py-12 px-24">
-        <span className="flex justify-between pb-3">
-          <h2 className="text-3xl font-normal self-start">Today</h2>
-          <div
-            className="flex justify-center items-end cursor-pointer"
-            onClick={handleTodayTasks}
-          >
+        <span className="flex justify-between pb-3" onClick={handleTodayTasks}>
+          <h2 className="text-3xl font-normal self-start cursor-pointer">
+            Today
+          </h2>
+          <div className="flex justify-center items-end cursor-pointer">
             {isTodayTasksOpen ? (
               <FaAngleDown size={"25"} className="text-white " />
             ) : (
@@ -63,22 +62,26 @@ const TasksLayout = () => {
           {todayTasks.map((task) => (
             <TaskItem
               key={task.id}
-              id={task.id}
-              name={task.name}
-              due={task.due}
-              desc={task.desc}
-              category={task.category}
+              task={
+                {
+                  id: task.id,
+                  name: task.name,
+                  due: task.due,
+                  desc: task.desc,
+                  category: task.category,
+                } as TaskValues
+              }
+              onDel={deleteTask}
             />
           ))}
         </div>
       </div>
       <div className="py-12 px-24">
-        <span className="flex justify-between pb-3">
-          <h2 className="text-3xl font-normal self-start">Upcoming</h2>
-          <div
-            className="flex justify-center items-end cursor-pointer"
-            onClick={handleUpTasks}
-          >
+        <span className="flex justify-between pb-3" onClick={handleUpTasks}>
+          <h2 className="text-3xl font-normal self-start cursor-pointer">
+            Upcoming
+          </h2>
+          <div className="flex justify-center items-end cursor-pointer">
             {isUpTasksOpen ? (
               <FaAngleDown size={"25"} className="text-white " />
             ) : (
@@ -92,11 +95,16 @@ const TasksLayout = () => {
           {upcomingTasks.map((task) => (
             <TaskItem
               key={task.id}
-              id={task.id}
-              name={task.name}
-              due={task.due}
-              desc={task.desc}
-              category={task.category}
+              task={
+                {
+                  id: task.id,
+                  name: task.name,
+                  due: task.due,
+                  desc: task.desc,
+                  category: task.category,
+                } as TaskValues
+              }
+              onDel={deleteTask}
             />
           ))}
         </div>
