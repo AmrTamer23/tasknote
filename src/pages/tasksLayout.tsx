@@ -30,7 +30,7 @@ const TasksLayout = () => {
 
   const handleModal = () => setShowModal(!showModal);
 
-  const { tasks, addTask } = useLocalStorage();
+  const { tasks, addTask, lastTaskId } = useLocalStorage();
 
   const todayTasks = tasks.filter((task) => {
     if (CountdownDays(new Date(task.due)) === "Today") return task;
@@ -113,7 +113,7 @@ const TasksLayout = () => {
                   <h4 className="text-2xl self-center">Add a Task</h4>
                   <Formik<TaskValues>
                     initialValues={{
-                      id: 0,
+                      id: lastTaskId() + 1,
                       name: "",
                       due: new Date(),
                       desc: "",

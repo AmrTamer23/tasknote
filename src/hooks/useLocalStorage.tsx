@@ -1,9 +1,11 @@
 import { useState } from "react";
-
 import Category from "../interfaces/category";
 import NoteValues from "../interfaces/note";
 import TaskValues from "../interfaces/task";
 
+/*
+This Custom hook is used to add, delete and get Tasks, Notes and Categories from the local storage.
+*/
 function useLocalStorage() {
   const [notes, setNotes] = useState<NoteValues[]>(
     localStorage.getItem("notes")
@@ -56,13 +58,61 @@ function useLocalStorage() {
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
+  const deleteNote = (id: number) => {
+    const updatedNotes = notes.filter((note) => note.id !== id);
+    setNotes(updatedNotes);
+    localStorage.setItem("notes", JSON.stringify(updatedNotes));
+  };
+
+  const deleteCategory = (id: number) => {
+    const updatedCategories = categories.filter(
+      (category) => category.id !== id
+    );
+    setCategories(updatedCategories);
+    localStorage.setItem("categories", JSON.stringify(updatedCategories));
+  };
+
+  const deleteTask = (id: number) => {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  };
+
+  const lastNoteId = () => {
+    if (notes.length === 0) {
+      return 0;
+    }
+    return notes[notes.length - 1].id;
+  };
+
+  const lastCategoryId = () => {
+    if (categories.length === 0) {
+      return 0;
+    }
+    return categories[categories.length - 1].id;
+  };
+  ``;
+
+  const lastTaskId = () => {
+    if (tasks.length === 0) {
+      return 0;
+    }
+    return tasks[tasks.length - 1].id;
+  };
+
   return {
     notes,
+    lastNoteId,
     addNote,
+    deleteNote,
     categories,
+    lastCategoryId,
     addCategory,
+    deleteCategory,
     tasks,
+    lastTaskId,
     addTask,
+    deleteTask,
   };
 }
 
