@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { IconType } from "react-icons";
-import Modal from "./Modal";
 
 interface FloatingButtonProps {
   Icon: IconType;

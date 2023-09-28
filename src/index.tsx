@@ -1,11 +1,11 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import TasksLayout from "./pages/TasksLayout";
+import TasksLayout from "./pages/tasksLayout";
 import reportWebVitals from "./reportWebVitals";
 import Layout from "./App";
 import "./index.css";
-import NotesLayout from "./pages/NotesLayout";
+import NotesLayout from "./pages/notesLayout";
 
 export default function App() {
   return (

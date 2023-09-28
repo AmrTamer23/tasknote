@@ -6,9 +6,6 @@ interface ModalProps {
 }
 
 function Modal(props: ModalProps) {
-  const buttonStyle =
-    "bg-green-800 text-white border-none px-2.5 py-5 text-lg cursor-pointer";
-
   return (
     <div className={"modal-overlay "} onClick={props.onBackgroundClick}>
       <div
