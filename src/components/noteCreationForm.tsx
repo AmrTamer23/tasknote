@@ -15,8 +15,8 @@ const noteCreationForm: (props: FormikProps<noteValues>) => JSX.Element = ({
     <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
       <input
         type="text"
-        name="noteName"
-        placeholder="Note Name"
+        name="name"
+        placeholder="Note Title"
         value={values.name}
         onChange={handleChange}
         onBlur={handleBlur}
@@ -25,7 +25,7 @@ const noteCreationForm: (props: FormikProps<noteValues>) => JSX.Element = ({
       {errors.name && <div className="text-red-500">{errors.name}</div>}
       <span className="flex justify-between gap-3 items-center">
         <select
-          name="noteCategory"
+          name="category"
           value={values.category?.name}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -38,7 +38,7 @@ const noteCreationForm: (props: FormikProps<noteValues>) => JSX.Element = ({
 
         <div className="relative">
           <select
-            name="noteColor"
+            name="color"
             onChange={handleChange}
             value={values.color}
             className="opacity-0 absolute inset-0 w-full h-full"
@@ -56,7 +56,7 @@ const noteCreationForm: (props: FormikProps<noteValues>) => JSX.Element = ({
         </div>
       </span>
       <textarea
-        name="noteDesc"
+        name="desc"
         placeholder="Note Description"
         value={values.desc}
         onChange={handleChange}

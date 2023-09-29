@@ -7,6 +7,7 @@ import Modal from "../components/ui/modal";
 import useLocalStorage from "../hooks/useLocalStorage";
 import NoteValues from "../interfaces/note";
 import noteCreationForm from "../components/noteCreationForm";
+import { on } from "events";
 
 function NotesLayout() {
   const [showModal, setShowModal] = useState(false);
@@ -15,20 +16,25 @@ function NotesLayout() {
     setShowModal(!showModal);
   };
 
-  let { notes, addNote, lastNoteId } = useLocalStorage();
+  let { notes, addNote, lastNoteId, deleteNote } = useLocalStorage();
 
   return (
     <div className="py-12 px-24 grid grid-cols-2 items-between justify-items-center align-items-center gap-5">
       {notes &&
-        notes.map((note, i) => {
+        notes.map((note) => {
           return (
             <NoteItem
               key={note.id}
-              name={note.name}
-              desc={note.desc}
-              color={note.color}
-              category={note.category}
-              id={note.id}
+              note={
+                {
+                  id: note.id,
+                  name: note.name,
+                  desc: note.desc,
+                  category: note.category,
+                  color: note.color,
+                } as NoteValues
+              }
+              onDel={deleteNote}
             />
           );
         })}
