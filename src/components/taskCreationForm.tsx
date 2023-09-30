@@ -32,6 +32,14 @@ const taskCreationForm: (props: FormikProps<taskValues>) => JSX.Element = ({
           className={`${textFieldsStyle} w-40`}
         />
       </div>
+      <select
+        name="category"
+        value={values.categoryId}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className={textFieldsStyle}
+      ></select>
+
       <textarea
         placeholder="Task Description"
         name="desc"

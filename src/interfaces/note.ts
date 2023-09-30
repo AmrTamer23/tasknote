@@ -4,7 +4,7 @@ export default interface NoteValues {
     id: number;
     name: string;
     desc: string;
-    category?: Category;
+    categoryId?: number;
     color: string;
   }
   

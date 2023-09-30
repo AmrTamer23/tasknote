@@ -26,7 +26,7 @@ const noteCreationForm: (props: FormikProps<noteValues>) => JSX.Element = ({
       <span className="flex justify-between gap-3 items-center">
         <select
           name="category"
-          value={values.category?.name}
+          value={values.categoryId}
           onChange={handleChange}
           onBlur={handleBlur}
           className={textFieldsStyle}

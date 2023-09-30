@@ -6,6 +6,11 @@ import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
 import { MdTaskAlt } from "react-icons/md";
 import "../App.css";
 import { NavLink } from "react-router-dom";
+import Modal from "./ui/modal";
+import { Formik } from "formik";
+import Category from "../interfaces/category";
+import categoryCreationForm from "./categoryCreationForm";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 const Sidebar = () => {
   const menuItemStyle =
@@ -17,6 +22,13 @@ const Sidebar = () => {
   const handleCategoryMenu = () => {
     setIsCategoryMenuOpen(!isCategoryMenuOpen);
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const { categories, addCategory, lastCategoryId } = useLocalStorage();
 
   return (
     <aside className="h-screen fixed hidden md:flex">
@@ -50,19 +62,22 @@ const Sidebar = () => {
           </li>
           {isCategoryMenuOpen && (
             <div className="flex flex-col w-full">
-              <li className={categoryItemStyle}>
-                <span className="h-5 w-5 bg-blue-600 rounded-xl"></span>
-                <p className="subMenuLabel disable-text-selection">
-                  Software Dev.
-                </p>
-              </li>
-              <li className={categoryItemStyle}>
-                <span className="h-5 w-5 bg-emerald-800 rounded-xl"></span>
-                <p className="subMenuLabel disable-text-selection">
-                  Problem Solving
-                </p>
-              </li>
-              <li className={categoryItemStyle}>
+              {categories.map((category) => (
+                <NavLink
+                  to={`/`}
+                  className={categoryItemStyle}
+                  key={category.id}
+                >
+                  <div
+                    className="w-5 h-5 rounded-full"
+                    style={{ backgroundColor: category.color }}
+                  ></div>
+                  <p className="subMenuLabel disable-text-selection">
+                    {category.name}
+                  </p>
+                </NavLink>
+              ))}
+              <li className={categoryItemStyle} onClick={handleModal}>
                 <IoMdAdd size={"20"} />
                 <p className="subMenuLabel disable-text-selection">
                   Add Category
@@ -73,6 +88,34 @@ const Sidebar = () => {
         </div>
       </nav>
       <div className="h-full w-0.5 bg-white"></div>
+      {isModalOpen && (
+        <Modal
+          onBackgroundClick={handleModal}
+          children={
+            <>
+              <h4 className="text-2xl self-center">Add a Category</h4>
+              <Formik<Category>
+                initialValues={
+                  {
+                    id: lastCategoryId() + 1,
+                    name: "",
+                    color: "",
+                  } as Category
+                }
+                onSubmit={(values) => {
+                  addCategory({
+                    id: lastCategoryId() + 1,
+                    name: values.name,
+                    color: values.color,
+                  });
+                  handleModal();
+                }}
+                component={categoryCreationForm}
+              />
+            </>
+          }
+        />
+      )}
     </aside>
   );
 };

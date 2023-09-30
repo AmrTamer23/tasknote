@@ -68,7 +68,7 @@ const TasksLayout = () => {
                   name: task.name,
                   due: task.due,
                   desc: task.desc,
-                  category: task.category,
+                  category: task.categoryId,
                 } as TaskValues
               }
               onDel={deleteTask}
@@ -101,7 +101,7 @@ const TasksLayout = () => {
                   name: task.name,
                   due: task.due,
                   desc: task.desc,
-                  category: task.category,
+                  category: task.categoryId,
                 } as TaskValues
               }
               onDel={deleteTask}
@@ -125,11 +125,7 @@ const TasksLayout = () => {
                       name: "",
                       due: new Date(),
                       desc: "",
-                      category: {
-                        id: 0,
-                        name: "",
-                        color: "",
-                      },
+                      categoryId: 0,
                     }}
                     onSubmit={(values) => {
                       addTask({
@@ -137,7 +133,7 @@ const TasksLayout = () => {
                         name: values.name,
                         due: values.due,
                         desc: values.desc,
-                        category: values.category,
+                        categoryId: values.categoryId,
                       });
 
                       if (values.name) handleModal();

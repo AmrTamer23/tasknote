@@ -30,7 +30,7 @@ function NotesLayout() {
                   id: note.id,
                   name: note.name,
                   desc: note.desc,
-                  category: note.category,
+                  category: note.categoryId,
                   color: note.color,
                 } as NoteValues
               }
@@ -54,11 +54,7 @@ function NotesLayout() {
                       id: lastNoteId() + 1,
                       name: "",
                       desc: "",
-                      category: {
-                        id: 0,
-                        name: "",
-                        color: "",
-                      },
+                      categoryId: 0,
                       color: "#333333",
                     }}
                     onSubmit={(values) => {
@@ -66,7 +62,7 @@ function NotesLayout() {
                         id: values.id,
                         name: values.name,
                         desc: values.desc,
-                        category: values.category,
+                        categoryId: values.categoryId,
                         color: values.color,
                       });
 

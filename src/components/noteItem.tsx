@@ -31,9 +31,9 @@ function NoteItem(props: NoteItemProps) {
         </p>
         <div
           className="text-lg overflow-hidden text-ellipsis max-h-12"
-          style={{ color: props.note.category?.color, opacity: 0.6 }}
+          // style={{ color: props.note.category?.color, opacity: 0.6 }}
         >
-          {props.note.category?.name}
+          {/* {props.note.category?.name} */}
         </div>
       </div>
 
@@ -45,17 +45,17 @@ function NoteItem(props: NoteItemProps) {
               <span className="flex justify-between items-center mb-5">
                 <div>
                   <h2 className={`${noteHeading}`}>{props.note.name}</h2>
-                  {props.note.category?.name != "" && (
-                    <span className="flex items-center py-1 gap-1 hover:opacity-80 hover:cursor-pointer disable-text-selection">
-                      <span
-                        className={`h-3 w-3 rounded-xl`}
-                        style={{ backgroundColor: props.note.category?.color }}
-                      ></span>
-                      <p className="subMenuLabel disable-text-selection text-xs">
-                        {props.note.category?.name}
-                      </p>
-                    </span>
-                  )}
+                  {/* {props.note.category?.name != "" && */}(
+                  <span className="flex items-center py-1 gap-1 hover:opacity-80 hover:cursor-pointer disable-text-selection">
+                    <span
+                      className={`h-3 w-3 rounded-xl`}
+                      // style={{ backgroundColor: props.note.category?.color }}
+                    ></span>
+                    <p className="subMenuLabel disable-text-selection text-xs">
+                      {/* {props.note.category?.name} */}
+                    </p>
+                  </span>
+                  )
                 </div>
                 <span className="flex flex-col items-end gap-3">
                   <RiDeleteBin6Line
