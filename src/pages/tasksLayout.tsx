@@ -3,9 +3,9 @@ import TaskItem from "../components/taskItem";
 import { FaAngleLeft, FaAngleDown, FaPlus } from "react-icons/fa";
 import FloatingButton from "../components/ui/floatingButton";
 import Modal from "../components/ui/modal";
-import TaskValues from "../interfaces/task";
+import { TaskValues } from "../utils/interfaces";
 import { Formik } from "formik";
-import taskCreationForm from "../components/taskCreationForm";
+import TaskCreationForm from "../components/taskCreationForm";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { CountdownDays } from "../utils/helpers";
 
@@ -68,7 +68,7 @@ const TasksLayout = () => {
                   name: task.name,
                   due: task.due,
                   desc: task.desc,
-                  category: task.categoryId,
+                  categoryId: task.categoryId,
                 } as TaskValues
               }
               onDel={deleteTask}
@@ -101,7 +101,7 @@ const TasksLayout = () => {
                   name: task.name,
                   due: task.due,
                   desc: task.desc,
-                  category: task.categoryId,
+                  categoryId: task.categoryId,
                 } as TaskValues
               }
               onDel={deleteTask}
@@ -138,7 +138,7 @@ const TasksLayout = () => {
 
                       if (values.name) handleModal();
                     }}
-                    component={taskCreationForm}
+                    component={TaskCreationForm}
                   />
                 </>
               }

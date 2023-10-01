@@ -1,7 +1,8 @@
 import { FormikProps } from "formik";
-import taskValues from "../interfaces/task";
+import { TaskValues } from "../utils/interfaces";
+import useLocalStorage from "../hooks/useLocalStorage";
 
-const taskCreationForm: (props: FormikProps<taskValues>) => JSX.Element = ({
+const TaskCreationForm: (props: FormikProps<TaskValues>) => JSX.Element = ({
   values,
   handleChange,
   handleBlur,
@@ -10,6 +11,8 @@ const taskCreationForm: (props: FormikProps<taskValues>) => JSX.Element = ({
 }) => {
   const textFieldsStyle =
     " border-none p-4 rounded-lg text-lg  w-full p-2 rounded-md placeholder-gray-500 my-2";
+
+  const { categories } = useLocalStorage();
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
@@ -33,12 +36,19 @@ const taskCreationForm: (props: FormikProps<taskValues>) => JSX.Element = ({
         />
       </div>
       <select
-        name="category"
+        name="categoryId"
         value={values.categoryId}
         onChange={handleChange}
         onBlur={handleBlur}
         className={textFieldsStyle}
-      ></select>
+      >
+        <option value={undefined}>Select a Category</option>
+        {categories.map((category) => (
+          <option key={category.id} value={category.id}>
+            {category.name}
+          </option>
+        ))}
+      </select>
 
       <textarea
         placeholder="Task Description"
@@ -58,4 +68,4 @@ const taskCreationForm: (props: FormikProps<taskValues>) => JSX.Element = ({
   );
 };
 
-export default taskCreationForm;
+export default TaskCreationForm;

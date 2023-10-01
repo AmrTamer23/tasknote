@@ -1,7 +1,7 @@
 import { FormikProps } from "formik";
-import noteValues from "../interfaces/note";
+import { NoteValues } from "../utils/interfaces";
 
-const noteCreationForm: (props: FormikProps<noteValues>) => JSX.Element = ({
+const noteCreationForm: (props: FormikProps<NoteValues>) => JSX.Element = ({
   values,
   handleChange,
   handleBlur,

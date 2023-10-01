@@ -1,5 +1,5 @@
 import { FormikProps } from "formik";
-import CategoryValues from "../interfaces/category";
+import { CategoryValues } from "../utils/interfaces";
 
 const categoryCreationForm: (
   props: FormikProps<CategoryValues>

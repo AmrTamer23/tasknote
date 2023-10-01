@@ -1,7 +1,8 @@
 import { FaCheck } from "react-icons/fa";
 import "../App.css";
-import TaskValues from "../interfaces/task";
+import { TaskValues } from "../utils/interfaces";
 import { CountdownDays } from "../utils/helpers";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 interface TaskItemProps {
   task: TaskValues;
@@ -9,6 +10,12 @@ interface TaskItemProps {
 }
 
 const TaskItem = (props: TaskItemProps) => {
+  const { fetchCategoriesById } = useLocalStorage();
+
+  const category = fetchCategoriesById(props.task.categoryId);
+
+  console.log(category);
+
   return (
     <div className="bg-[#333333] h-20 w-full rounded-lg flex justify-between mb-5">
       <div className="flex flex-col">
@@ -18,14 +25,21 @@ const TaskItem = (props: TaskItemProps) => {
           <h4 className="text-xl font-light text-gray-400">
             Due {CountdownDays(new Date(props.task.due))}
           </h4>
-          {/* {props.task.category?.name != "" && (
+          {category ? (
             <>
-              <span className="h-1.5 w-1.5 bg-[#797575] rounded-full self-center"></span>
+              <span
+                className="h-1.5 w-1.5 rounded-full self-center"
+                style={{
+                  backgroundColor: category.color,
+                }}
+              ></span>
               <h4 className="text-xl font-light text-gray-400">
-                {props.task.category?.name}
+                {category.name}
               </h4>
             </>
-          )} */}
+          ) : (
+            <></>
+          )}
         </div>
         <div className="h-2/4 s">
           <p className="text-sm font-normal text-gray-300 px-5">

@@ -5,7 +5,7 @@ import { FaPlus } from "react-icons/fa";
 import NoteItem from "../components/noteItem";
 import Modal from "../components/ui/modal";
 import useLocalStorage from "../hooks/useLocalStorage";
-import NoteValues from "../interfaces/note";
+import { NoteValues } from "../utils/interfaces";
 import noteCreationForm from "../components/noteCreationForm";
 import { on } from "events";
 

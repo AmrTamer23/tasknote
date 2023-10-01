@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./ui/modal";
-import NoteValues from "../interfaces/note";
+import { NoteValues } from "../utils/interfaces";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 interface NoteItemProps {

@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import Layout from "./App";
 import "./index.css";
 import NotesLayout from "./pages/notesLayout";
+import CategoryLayout from "./pages/categoryLayout";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<TasksLayout />} />
           <Route path="notes" element={<NotesLayout />} />
+          <Route path="categories/:categoryId" element={<CategoryLayout />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -29,7 +31,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

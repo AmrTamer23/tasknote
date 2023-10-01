@@ -8,7 +8,7 @@ import "../App.css";
 import { NavLink } from "react-router-dom";
 import Modal from "./ui/modal";
 import { Formik } from "formik";
-import Category from "../interfaces/category";
+import { CategoryValues } from "../utils/interfaces";
 import categoryCreationForm from "./categoryCreationForm";
 import useLocalStorage from "../hooks/useLocalStorage";
 
@@ -64,7 +64,7 @@ const Sidebar = () => {
             <div className="flex flex-col w-full">
               {categories.map((category) => (
                 <NavLink
-                  to={`/`}
+                  to={`/categories/${category.id}`}
                   className={categoryItemStyle}
                   key={category.id}
                 >
@@ -94,13 +94,13 @@ const Sidebar = () => {
           children={
             <>
               <h4 className="text-2xl self-center">Add a Category</h4>
-              <Formik<Category>
+              <Formik<CategoryValues>
                 initialValues={
                   {
                     id: lastCategoryId() + 1,
                     name: "",
                     color: "",
-                  } as Category
+                  } as CategoryValues
                 }
                 onSubmit={(values) => {
                   addCategory({
