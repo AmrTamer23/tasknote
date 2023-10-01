@@ -41,7 +41,7 @@ const categoryCreationForm: (
           </select>
           <div
             className="w-6 h-6 rounded-full border border-gray-300 shadow-md cursor-pointer"
-            style={{ backgroundColor: values.color }}
+            style={{ backgroundColor: values.color ? values.color : "#FF5733" }}
           ></div>
         </div>
       </div>

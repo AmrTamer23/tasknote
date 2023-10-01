@@ -12,7 +12,7 @@ function FloatingButton(props: FloatingButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   const containerStyle = "fixed bottom-5 right-5";
-  const buttonStyle = `bg-[#28822C] text-white border-none px-2.5 py-5 text-lg cursor-pointer rounded-md flex justify-center items-center gap-2`;
+  const buttonStyle = `bg-[#28822C] text-white border-none px-2.5 py-5 text-lg cursor-pointer rounded-xl flex justify-center items-center gap-2`;
   const textContainerStyle =
     "absolute bottom-12 right-2 transform -translate-x-1/2 opacity-0 transition-opacity duration-300";
   const textInnerStyle =
