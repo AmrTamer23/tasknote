@@ -1,7 +1,8 @@
 import { FormikProps } from "formik";
 import { NoteValues } from "../utils/interfaces";
+import { useLocalStorageContext } from "../context/LocalStorageContext";
 
-const noteCreationForm: (props: FormikProps<NoteValues>) => JSX.Element = ({
+const NoteCreationForm: (props: FormikProps<NoteValues>) => JSX.Element = ({
   values,
   handleChange,
   handleBlur,
@@ -10,6 +11,8 @@ const noteCreationForm: (props: FormikProps<NoteValues>) => JSX.Element = ({
 }) => {
   const textFieldsStyle =
     " border-none p-4 rounded-lg text-lg  w-full p-2 rounded-md placeholder-gray-500 my-2";
+
+  const { categories } = useLocalStorageContext();
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
@@ -25,15 +28,18 @@ const noteCreationForm: (props: FormikProps<NoteValues>) => JSX.Element = ({
       {errors.name && <div className="text-red-500">{errors.name}</div>}
       <span className="flex justify-between gap-3 items-center">
         <select
-          name="category"
+          name="categoryId"
           value={values.categoryId}
           onChange={handleChange}
           onBlur={handleBlur}
           className={textFieldsStyle}
         >
-          <option value="">Select a Category</option>
-          <option value="Design">Design</option>
-          <option value="Marketing">Marketing</option>
+          <option value={undefined}>Select a Category</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
         </select>
 
         <div className="relative">
@@ -75,4 +81,4 @@ const noteCreationForm: (props: FormikProps<NoteValues>) => JSX.Element = ({
   );
 };
 
-export default noteCreationForm;
+export default NoteCreationForm;

@@ -107,6 +107,12 @@ function useLocalStorage() {
     const cateTasks: TaskValues[] = tasks.filter(
       (task) => task.categoryId == id
     );
+    cateTasks.forEach((task) => {
+      task.due = new Date(task.due); // convert due to a Date object
+    });
+    cateTasks.sort((a, b) => {
+      return a.due.getTime() - b.due.getTime();
+    });
     return cateTasks ? cateTasks : undefined;
   };
 

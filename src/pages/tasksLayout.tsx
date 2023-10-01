@@ -113,6 +113,7 @@ const TasksLayout = () => {
       <FloatingButton
         Icon={FaPlus}
         onClick={handleModal}
+        text="Add a Task"
         children={
           showModal && (
             <Modal

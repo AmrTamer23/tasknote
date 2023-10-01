@@ -21,6 +21,9 @@ const CategoryLayout = () => {
 
   const category = fetchCategoriesById(parseInt(categoryId || ""));
 
+  const tasks = fetchTasksByCategoryId(parseInt(categoryId || ""));
+  const notes = fetchNotesByCategoryId(parseInt(categoryId || ""));
+
   const [activeTab, setActiveTab] = useState<"tasks" | "notes">("tasks");
 
   const handleTabClick = (tab: "tasks" | "notes") => {
@@ -55,6 +58,28 @@ const CategoryLayout = () => {
           backgroundColor: category?.color,
         }}
       ></div>
+      {
+        {
+          tasks: (
+            <div className="py-5 px-36 flex flex-col items-between justify-items-center align-items-center gap-2">
+              {tasks?.map((task) => {
+                return (
+                  <TaskItem key={task.id} task={task} onDel={deleteTask} />
+                );
+              })}
+            </div>
+          ),
+          notes: (
+            <div className="p-5 grid grid-cols-2 items-between justify-items-center align-items-center gap-5">
+              {notes?.map((note) => {
+                return (
+                  <NoteItem key={note.id} note={note} onDel={deleteNote} />
+                );
+              })}
+            </div>
+          ),
+        }[activeTab]
+      }
     </div>
   );
 };

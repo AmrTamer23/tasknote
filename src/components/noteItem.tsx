@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "./ui/modal";
 import { NoteValues } from "../utils/interfaces";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useLocalStorageContext } from "../context/LocalStorageContext";
 
 interface NoteItemProps {
   note: NoteValues;
@@ -14,6 +15,10 @@ function NoteItem(props: NoteItemProps) {
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+  const { fetchCategoriesById } = useLocalStorageContext();
+
+  const category = fetchCategoriesById(props.note.categoryId);
 
   const noteHeading =
     "text-3xl font-normal self-start py-1 text-[#E0E0E0] mt-2";
@@ -31,9 +36,9 @@ function NoteItem(props: NoteItemProps) {
         </p>
         <div
           className="text-lg overflow-hidden text-ellipsis max-h-12"
-          // style={{ color: props.note.category?.color, opacity: 0.6 }}
+          style={{ color: category?.color, opacity: 0.8 }}
         >
-          {/* {props.note.category?.name} */}
+          {category?.name}
         </div>
       </div>
 
@@ -45,17 +50,16 @@ function NoteItem(props: NoteItemProps) {
               <span className="flex justify-between items-center mb-5">
                 <div>
                   <h2 className={`${noteHeading}`}>{props.note.name}</h2>
-                  {/* {props.note.category?.name != "" && */}(
+
                   <span className="flex items-center py-1 gap-1 hover:opacity-80 hover:cursor-pointer disable-text-selection">
                     <span
                       className={`h-3 w-3 rounded-xl`}
-                      // style={{ backgroundColor: props.note.category?.color }}
+                      style={{ backgroundColor: category?.color }}
                     ></span>
                     <p className="subMenuLabel disable-text-selection text-xs">
-                      {/* {props.note.category?.name} */}
+                      {category?.name}
                     </p>
                   </span>
-                  )
                 </div>
                 <span className="flex flex-col items-end gap-3">
                   <RiDeleteBin6Line

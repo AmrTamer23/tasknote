@@ -6,7 +6,7 @@ import NoteItem from "../components/noteItem";
 import Modal from "../components/ui/modal";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 import { NoteValues } from "../utils/interfaces";
-import noteCreationForm from "../components/noteCreationForm";
+import NoteCreationForm from "../components/noteCreationForm";
 import { on } from "events";
 import { TimeOfDay } from "../utils/helpers";
 
@@ -33,7 +33,7 @@ function NotesLayout() {
                     id: note.id,
                     name: note.name,
                     desc: note.desc,
-                    category: note.categoryId,
+                    categoryId: note.categoryId,
                     color: note.color,
                   } as NoteValues
                 }
@@ -45,6 +45,7 @@ function NotesLayout() {
         <FloatingButton
           Icon={FaPlus}
           onClick={handleModal}
+          text="Add a Note"
           children={
             showModal && (
               <Modal
@@ -71,7 +72,7 @@ function NotesLayout() {
 
                         if (values.name && values.desc) handleModal();
                       }}
-                      component={noteCreationForm}
+                      component={NoteCreationForm}
                     />
                   </>
                 }
