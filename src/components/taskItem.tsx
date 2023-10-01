@@ -2,7 +2,7 @@ import { FaCheck } from "react-icons/fa";
 import "../App.css";
 import { TaskValues } from "../utils/interfaces";
 import { CountdownDays } from "../utils/helpers";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useLocalStorageContext } from "../context/LocalStorageContext";
 
 interface TaskItemProps {
   task: TaskValues;
@@ -10,7 +10,7 @@ interface TaskItemProps {
 }
 
 const TaskItem = (props: TaskItemProps) => {
-  const { fetchCategoriesById } = useLocalStorage();
+  const { fetchCategoriesById } = useLocalStorageContext();
 
   const category = fetchCategoriesById(props.task.categoryId);
 

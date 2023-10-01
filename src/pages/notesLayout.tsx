@@ -4,7 +4,7 @@ import FloatingButton from "../components/ui/floatingButton";
 import { FaPlus } from "react-icons/fa";
 import NoteItem from "../components/noteItem";
 import Modal from "../components/ui/modal";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useLocalStorageContext } from "../context/LocalStorageContext";
 import { NoteValues } from "../utils/interfaces";
 import noteCreationForm from "../components/noteCreationForm";
 import { on } from "events";
@@ -17,7 +17,7 @@ function NotesLayout() {
     setShowModal(!showModal);
   };
 
-  let { notes, addNote, lastNoteId, deleteNote } = useLocalStorage();
+  let { notes, addNote, lastNoteId, deleteNote } = useLocalStorageContext();
 
   return (
     <div className="flex flex-col">

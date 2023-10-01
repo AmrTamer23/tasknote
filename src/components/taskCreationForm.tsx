@@ -1,6 +1,6 @@
 import { FormikProps } from "formik";
 import { TaskValues } from "../utils/interfaces";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useLocalStorageContext } from "../context/LocalStorageContext";
 
 const TaskCreationForm: (props: FormikProps<TaskValues>) => JSX.Element = ({
   values,
@@ -12,7 +12,7 @@ const TaskCreationForm: (props: FormikProps<TaskValues>) => JSX.Element = ({
   const textFieldsStyle =
     " border-none p-4 rounded-lg text-lg  w-full p-2 rounded-md placeholder-gray-500 my-2";
 
-  const { categories } = useLocalStorage();
+  const { categories } = useLocalStorageContext();
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit}>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logoW from "../assets/logoW.png";
 import { BsAsterisk } from "react-icons/bs";
 import { IoMdAdd } from "react-icons/io";
@@ -10,7 +10,7 @@ import Modal from "./ui/modal";
 import { Formik } from "formik";
 import { CategoryValues } from "../utils/interfaces";
 import categoryCreationForm from "./categoryCreationForm";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useLocalStorageContext } from "../context/LocalStorageContext";
 
 const Sidebar = () => {
   const menuItemStyle =
@@ -28,7 +28,7 @@ const Sidebar = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const { categories, addCategory, lastCategoryId } = useLocalStorage();
+  const { categories, addCategory, lastCategoryId } = useLocalStorageContext();
 
   return (
     <aside className="h-screen fixed hidden md:flex">
@@ -45,7 +45,6 @@ const Sidebar = () => {
 
           <NavLink to="notes" className={menuItemStyle}>
             <BsAsterisk size={"25"} />
-
             <p className="menuLabel">Notes</p>
           </NavLink>
 

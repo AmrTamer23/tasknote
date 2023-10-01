@@ -6,7 +6,7 @@ import Modal from "../components/ui/modal";
 import { TaskValues } from "../utils/interfaces";
 import { Formik } from "formik";
 import TaskCreationForm from "../components/taskCreationForm";
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useLocalStorageContext } from "../context/LocalStorageContext";
 import { CountdownDays, TimeOfDay } from "../utils/helpers";
 
 const TasksLayout = () => {
@@ -30,7 +30,7 @@ const TasksLayout = () => {
 
   const handleModal = () => setShowModal(!showModal);
 
-  const { tasks, addTask, lastTaskId, deleteTask } = useLocalStorage();
+  const { tasks, addTask, lastTaskId, deleteTask } = useLocalStorageContext();
 
   const todayTasks = tasks.filter((task) => {
     if (CountdownDays(new Date(task.due)) === "Today") return task;
