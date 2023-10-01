@@ -34,7 +34,7 @@ const categoryCreationForm: (
           >
             <option value="#FF5733">Red</option>
             <option value="#3366FF">Blue</option>
-            <option value="#33FF57">Green</option>
+            <option value="#076718">Green</option>
             <option value="#9933FF">Purple</option>
             <option value="#FFA533">Orange</option>
             <option value="#FFFF33">Yellow</option>

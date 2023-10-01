@@ -7,7 +7,7 @@ import { TaskValues } from "../utils/interfaces";
 import { Formik } from "formik";
 import TaskCreationForm from "../components/taskCreationForm";
 import useLocalStorage from "../hooks/useLocalStorage";
-import { CountdownDays } from "../utils/helpers";
+import { CountdownDays, TimeOfDay } from "../utils/helpers";
 
 const TasksLayout = () => {
   const [isTodayTasksOpen, setIsTodayTasksOpen] = useState(true);
@@ -44,6 +44,7 @@ const TasksLayout = () => {
 
   return (
     <div className="flex flex-col">
+      <h1 className="font-semibold text-4xl">Good {TimeOfDay()}!</h1>
       <div className="py-12 px-24">
         <span className="flex justify-between pb-3" onClick={handleTodayTasks}>
           <h2 className="text-3xl font-normal self-start cursor-pointer">
