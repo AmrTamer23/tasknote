@@ -31,6 +31,7 @@ function NotesLayout() {
                 note={
                   {
                     id: note.id,
+                    createdAt: note.createdAt,
                     name: note.name,
                     desc: note.desc,
                     categoryId: note.categoryId,
@@ -56,6 +57,7 @@ function NotesLayout() {
                     <Formik<NoteValues>
                       initialValues={{
                         id: lastNoteId() + 1,
+                        createdAt: new Date(),
                         name: "",
                         desc: "",
                         categoryId: 0,
@@ -64,6 +66,7 @@ function NotesLayout() {
                       onSubmit={(values) => {
                         addNote({
                           id: values.id,
+                          createdAt: new Date(),
                           name: values.name,
                           desc: values.desc,
                           categoryId: values.categoryId,

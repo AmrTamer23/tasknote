@@ -77,6 +77,7 @@ const TaskItem = (props: TaskItemProps) => {
               category={category}
               onDel={props.onDel}
               icon={FaCheck}
+              iconColor={"#10B981"}
               handleModal={handleModal}
             />
           }

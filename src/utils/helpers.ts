@@ -1,3 +1,5 @@
+import { NoteValues, TaskValues } from "./interfaces"
+
 export function TimeOfDay(): string {
     const date = new Date()
     const hours = date.getHours()
@@ -20,4 +22,9 @@ export function CountdownDays(date: Date): String {
     {
         return 'In '.concat(days.toString()).concat(' days');
     }
+}
+
+
+export function isTask(item: TaskValues | NoteValues): item is TaskValues {
+    return (item as TaskValues).due !== undefined;
 }

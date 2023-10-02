@@ -8,6 +8,7 @@ export interface CategoryValues {
 
 export interface NoteValues {
   id: number;
+  createdAt: Date;
   name: string;
   desc: string;
   categoryId: number;

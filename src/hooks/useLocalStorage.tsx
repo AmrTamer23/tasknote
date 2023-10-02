@@ -108,7 +108,7 @@ function useLocalStorage() {
       (task) => task.categoryId == id
     );
     cateTasks.forEach((task) => {
-      task.due = new Date(task.due); // convert due to a Date object
+      task.due = new Date(task.due);
     });
     cateTasks.sort((a, b) => {
       return a.due.getTime() - b.due.getTime();

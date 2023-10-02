@@ -21,6 +21,8 @@ function NoteItem(props: NoteItemProps) {
 
   const category = fetchCategoriesById(props.note.categoryId);
 
+  const date = new Date(props.note.createdAt);
+
   return (
     <>
       <div
@@ -49,6 +51,7 @@ function NoteItem(props: NoteItemProps) {
               category={category}
               onDel={props.onDel}
               icon={RiDeleteBin6Line}
+              iconColor={"#FF0000"}
               handleModal={handleModal}
             />
           }
