@@ -5,6 +5,7 @@ import { CountdownDays } from "../utils/helpers";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 import { useState } from "react";
 import Modal from "./ui/modal";
+import ModalBody from "./modalBody";
 
 interface TaskItemProps {
   task: TaskValues;
@@ -21,14 +22,17 @@ const TaskItem = (props: TaskItemProps) => {
     setIsModalOpen(!isModalOpen);
   };
 
+  const headingStyle =
+    "text-3xl font-normal self-start py-1 text-[#E0E0E0] mt-2";
+
   return (
     <>
       <div
         className="bg-[#333333] h-20 w-full rounded-lg flex justify-between mb-5 select-none"
         onClick={handleModal}
       >
-        <div className="flex flex-col w-5/6">
-          <div className="flex px-5 py-1.5 items-center gap-3 h-2/4">
+        <div className="flex flex-col w-5/6 py-1">
+          <div className="flex px-5 items-center gap-3">
             <h4 className="text-xl font-normal text-white">
               {props.task.name}
             </h4>
@@ -58,14 +62,25 @@ const TaskItem = (props: TaskItemProps) => {
         </div>
 
         <div
-          className="bg-emerald-800 opacity-80 w-1/12 rounded-r-lg h-full flex justify-center items-center task-btns-check cursor-pointer"
+          className="bg-emerald-800 opacity-80 w-1/12 rounded-r-lg h-full flex justify-center items-center cursor-pointer"
           onClick={() => props.onDel(props.task.id)}
         >
           <FaCheck className="text-white" size={"30"} />
         </div>
       </div>
       {isModalOpen && (
-        <Modal onBackgroundClick={handleModal} children={<></>} />
+        <Modal
+          onBackgroundClick={handleModal}
+          children={
+            <ModalBody
+              item={props.task}
+              category={category}
+              onDel={props.onDel}
+              icon={FaCheck}
+              handleModal={handleModal}
+            />
+          }
+        />
       )}
     </>
   );
