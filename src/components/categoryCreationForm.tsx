@@ -14,7 +14,10 @@ const categoryCreationForm: (
     " border-none p-4 rounded-lg text-lg  w-full p-2 rounded-md placeholder-gray-500 my-2";
 
   return (
-    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+    <form
+      className="flex flex-col justify-center gap-4"
+      onSubmit={handleSubmit}
+    >
       <div className="flex items-center gap-5">
         <input
           type="text"

@@ -86,6 +86,7 @@ const Sidebar = () => {
       {isModalOpen && (
         <Modal
           onBackgroundClick={handleModal}
+          isCateForm={true}
           children={
             <>
               <h4 className="text-2xl self-center">Add a Category</h4>

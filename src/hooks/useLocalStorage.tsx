@@ -99,7 +99,7 @@ function useLocalStorage() {
 
   const fetchCategoriesById = (id: number) => {
     const category = categories.find((category) => category.id == id);
-    console.log(categories);
+
     return category ? category : undefined;
   };
 
