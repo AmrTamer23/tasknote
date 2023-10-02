@@ -26,7 +26,7 @@ function NoteItem(props: NoteItemProps) {
   return (
     <>
       <div
-        className="shadow-md p-8 rounded-lg mb-6 w-full md:w-2/3 lg:w-full xl:w-full flex flex-col justify-between"
+        className="shadow-md p-8 rounded-lg mb-6 w-full md:w-2/3 lg:w-full xl:w-full flex flex-col justify-between select-none"
         style={{ backgroundColor: props.note.color }}
         onClick={handleModal}
       >
@@ -46,17 +46,17 @@ function NoteItem(props: NoteItemProps) {
         <Modal
           onBackgroundClick={handleModal}
           children={
-            <div className="bg-[#444444] w-full h-auto rounded-lg overflow-hidden p-5">
+            <div className="bg-[#444444] w-full h-full overflow-y-scroll rounded-lg overflow-hidden p-5">
               <span className="flex justify-between items-center mb-5">
                 <div>
                   <h2 className={`${noteHeading}`}>{props.note.name}</h2>
 
-                  <span className="flex items-center py-1 gap-1 hover:opacity-80 hover:cursor-pointer disable-text-selection">
+                  <span className="flex items-center py-1 gap-1 hover:opacity-80 hover:cursor-pointer select-none">
                     <span
                       className={`h-3 w-3 rounded-xl`}
                       style={{ backgroundColor: category?.color }}
                     ></span>
-                    <p className="subMenuLabel disable-text-selection text-xs">
+                    <p className="subMenuLabel select-none text-xs">
                       {category?.name}
                     </p>
                   </span>

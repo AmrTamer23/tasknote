@@ -3,6 +3,8 @@ import "../App.css";
 import { TaskValues } from "../utils/interfaces";
 import { CountdownDays } from "../utils/helpers";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
+import { useState } from "react";
+import Modal from "./ui/modal";
 
 interface TaskItemProps {
   task: TaskValues;
@@ -14,48 +16,58 @@ const TaskItem = (props: TaskItemProps) => {
 
   const category = fetchCategoriesById(props.task.categoryId);
 
-  console.log(category);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   return (
-    <div className="bg-[#333333] h-20 w-full rounded-lg flex justify-between mb-5">
-      <div className="flex flex-col">
-        <div className="flex px-5 py-1.5 items-center gap-3 h-2/4">
-          <h4 className="text-xl font-normal text-white">{props.task.name}</h4>
-          <span className="h-1.5 w-1.5 bg-[#797575] rounded-full self-center"></span>
-          <h4 className="text-xl font-light text-gray-400">
-            Due {CountdownDays(new Date(props.task.due))}
-          </h4>
-          {category ? (
-            <>
-              <span
-                className="h-1.5 w-1.5 rounded-full self-center"
-                style={{
-                  backgroundColor: category.color,
-                }}
-              ></span>
-              <h4 className="text-xl font-light text-gray-400">
-                {category.name}
-              </h4>
-            </>
-          ) : (
-            <></>
-          )}
-        </div>
-        <div className="h-2/4 s">
-          <p className="text-sm font-normal text-gray-300 px-5">
+    <>
+      <div
+        className="bg-[#333333] h-20 w-full rounded-lg flex justify-between mb-5 select-none"
+        onClick={handleModal}
+      >
+        <div className="flex flex-col w-5/6">
+          <div className="flex px-5 py-1.5 items-center gap-3 h-2/4">
+            <h4 className="text-xl font-normal text-white">
+              {props.task.name}
+            </h4>
+            <span className="h-1.5 w-1.5 bg-[#797575] rounded-full self-center"></span>
+            <h4 className="text-xl font-light text-gray-400">
+              Due {CountdownDays(new Date(props.task.due))}
+            </h4>
+            {category ? (
+              <>
+                <span
+                  className="h-1.5 w-1.5 rounded-full self-center"
+                  style={{
+                    backgroundColor: category.color,
+                  }}
+                ></span>
+                <h4 className="text-xl font-light text-gray-400">
+                  {category.name}
+                </h4>
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+          <p className="text-sm font-normal text-gray-300 px-5 mb-1 overflow-y-hidden overflow-ellipsis">
             {props.task.desc}
           </p>
         </div>
-      </div>
-      <div className="flex flex-col w-11">
+
         <div
-          className="bg-emerald-800 opacity-80 h-full flex justify-center items-center task-btns-check cursor-pointer"
+          className="bg-emerald-800 opacity-80 w-1/12 rounded-r-lg h-full flex justify-center items-center task-btns-check cursor-pointer"
           onClick={() => props.onDel(props.task.id)}
         >
-          <FaCheck className="text-white" size={"25"} />
+          <FaCheck className="text-white" size={"30"} />
         </div>
       </div>
-    </div>
+      {isModalOpen && (
+        <Modal onBackgroundClick={handleModal} children={<></>} />
+      )}
+    </>
   );
 };
 

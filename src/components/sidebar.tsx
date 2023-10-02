@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import logoW from "../assets/logoW.png";
 import { BsAsterisk } from "react-icons/bs";
 import { IoMdAdd } from "react-icons/io";
@@ -14,7 +14,7 @@ import { useLocalStorageContext } from "../context/LocalStorageContext";
 
 const Sidebar = () => {
   const menuItemStyle =
-    "flex items-center h-16 w-full  px-5 py-2 gap-1.5 hover:bg-gray-700 hover:cursor-pointer disable-text-selection";
+    "flex items-center h-16 w-full  px-5 py-2 gap-1.5 hover:bg-gray-700 hover:cursor-pointer select-none";
   const categoryItemStyle = `${menuItemStyle} h-12 pl-10`;
 
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
@@ -71,16 +71,12 @@ const Sidebar = () => {
                     className="w-5 h-5 rounded-full"
                     style={{ backgroundColor: category.color }}
                   ></div>
-                  <p className="subMenuLabel disable-text-selection">
-                    {category.name}
-                  </p>
+                  <p className="subMenuLabel select-none">{category.name}</p>
                 </NavLink>
               ))}
               <li className={categoryItemStyle} onClick={handleModal}>
                 <IoMdAdd size={"20"} />
-                <p className="subMenuLabel disable-text-selection">
-                  Add Category
-                </p>
+                <p className="subMenuLabel select-none">Add Category</p>
               </li>
             </div>
           )}

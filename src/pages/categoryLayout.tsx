@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 import NoteItem from "../components/noteItem";
 import TaskItem from "../components/taskItem";
@@ -34,7 +34,7 @@ const CategoryLayout = () => {
     <div className="flex flex-col gap-5">
       <span className="flex justify-between items-end">
         <span className="flex items-end gap-2">
-          <h1 className="mt-8 text-5xl">{category?.name}</h1>
+          <h1 className="mt-2 text-5xl">{category?.name}</h1>
           <RiDeleteBin6Line
             size={"19"}
             color="red"

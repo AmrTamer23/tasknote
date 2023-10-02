@@ -1,32 +1,3 @@
-.menuLabel{
-    font-size: 1.2rem;
-    font-weight: 40000;
-}
-
-.subMenuLabel{
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-h1{
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-h1, h2, h3, h4, h5, h6, p{
-    color: white;
-}
-
-.task-btns-check
-{
-    border-radius: 0 0.5rem 0.5rem 0;
-}
-
-.task-btns-del
-{
-    border-radius: 0  0 0.5rem 0;
-}
-
 .tasks {
     max-height: 0;
     opacity: 0;
@@ -40,77 +11,11 @@ h1, h2, h3, h4, h5, h6, p{
   transition: max-height 0.1s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-.modal-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    border-radius: 5px;
-}
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
 
-.disable-text-selection {
-    -webkit-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-    user-select: none; 
-}   
 
 
-
-.floating-button-container {
-    position: fixed;
-    bottom: 5px;
-    right: 5px;
-  }
-  
-  .floating-button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 50%;
-    outline: none;
-    transition: background-color 0.3s;
-  }
-  
-  .floating-button:hover {
-    background-color: #45a049;
-  }
-  
-  .text-container {
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s, bottom 0.3s;
-    background-color: #333;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    white-space: nowrap;
-  }
-  
-  .floating-button-container:hover .text-container {
-    opacity: 1;
-    bottom: 10px;
-  }
   

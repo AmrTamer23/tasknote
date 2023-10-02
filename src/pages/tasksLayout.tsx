@@ -45,7 +45,7 @@ const TasksLayout = () => {
   return (
     <div className="flex flex-col">
       <h1 className="font-semibold text-4xl">Good {TimeOfDay()}!</h1>
-      <div className="py-12 px-24">
+      <div className="py-12 lg:px-24">
         <span className="flex justify-between pb-3" onClick={handleTodayTasks}>
           <h2 className="text-3xl font-normal self-start cursor-pointer">
             Today
@@ -77,7 +77,7 @@ const TasksLayout = () => {
           ))}
         </div>
       </div>
-      <div className="py-12 px-24">
+      <div className="py-12 lg:px-24">
         <span className="flex justify-between pb-3" onClick={handleUpTasks}>
           <h2 className="text-3xl font-normal self-start cursor-pointer">
             Upcoming

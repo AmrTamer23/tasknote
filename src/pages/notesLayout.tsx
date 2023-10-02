@@ -22,7 +22,7 @@ function NotesLayout() {
   return (
     <div className="flex flex-col">
       <h1 className="font-semibold text-4xl">Good {TimeOfDay()}!</h1>
-      <div className="py-12 px-24 grid grid-cols-2 items-between justify-items-center align-items-center gap-5">
+      <div className="py-12 lg:px-24 grid lg:grid-cols-2 items-between justify-items-center align-items-center gap-5">
         {notes &&
           notes.map((note) => {
             return (
