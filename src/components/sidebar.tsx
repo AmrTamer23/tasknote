@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logoW from "../assets/logoW.png";
+import logoW from "../assets/imgs/logoW.png";
 import { BsAsterisk } from "react-icons/bs";
 import { IoMdAdd } from "react-icons/io";
 import { FaAngleDown, FaAngleLeft } from "react-icons/fa";
