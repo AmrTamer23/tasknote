@@ -18,7 +18,7 @@ function App() {
           path="/"
           element={
             <LocalStorageProvider>
-              <div className="flex bg-[#121212]">
+              <div className="flex bg-[#0E0F0F]">
                 <Sidebar />
                 <main className="ml-52 px-14 py-5 w-full min-h-screen">
                   <Outlet />

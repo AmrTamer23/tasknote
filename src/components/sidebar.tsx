@@ -14,7 +14,7 @@ import { useLocalStorageContext } from "../context/LocalStorageContext";
 
 const Sidebar = () => {
   const menuItemStyle =
-    "flex items-center h-16 w-full  px-5 py-2 gap-1.5 hover:bg-gray-700 hover:cursor-pointer select-none";
+    "flex items-center h-16 w-full  pl-5 pr-2 py-2 gap-1.5 hover:bg-gray-700 hover:cursor-pointer select-none";
   const categoryItemStyle = `${menuItemStyle} h-12 pl-10`;
 
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ const Sidebar = () => {
 
   return (
     <aside className="h-screen fixed hidden md:flex">
-      <nav className="bg-[#222222] w-52 flex flex-col">
+      <nav className="bg-[#151617] w-52 flex flex-col">
         <div className="p-5 w-52 self-center">
           {" "}
           <img src={logoW} alt=" logo" />
@@ -54,9 +54,9 @@ const Sidebar = () => {
           >
             <h2 className="text-xl">Categories</h2>
             {isCategoryMenuOpen ? (
-              <FaAngleLeft className="text-white text-lg self-center" />
-            ) : (
               <FaAngleDown className="text-white text-lg self-center" />
+            ) : (
+              <FaAngleLeft className="text-white text-lg self-center" />
             )}
           </li>
           {isCategoryMenuOpen && (
@@ -82,7 +82,7 @@ const Sidebar = () => {
           )}
         </div>
       </nav>
-      <div className="h-full w-0.5 bg-white"></div>
+      <div className="h-full w-0.5 bg-[#ffffff1b]"></div>
       {isModalOpen && (
         <Modal
           onBackgroundClick={handleModal}

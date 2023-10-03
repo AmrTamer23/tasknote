@@ -31,7 +31,7 @@ const TaskItem = (props: TaskItemProps) => {
         className="bg-[#333333] h-20 w-full rounded-lg flex justify-between mb-5 select-none"
         onClick={handleModal}
       >
-        <div className="flex flex-col w-5/6 py-1">
+        <div className="flex flex-col w-5/6 py-1 gap-1">
           <div className="flex px-5 items-center gap-3">
             <h4 className="text-xl font-normal text-white">
               {props.task.name}
@@ -65,7 +65,7 @@ const TaskItem = (props: TaskItemProps) => {
           className="bg-emerald-800 opacity-80 w-1/12 rounded-r-lg h-full flex justify-center items-center cursor-pointer"
           onClick={() => props.onDel(props.task.id)}
         >
-          <FaCheck className="text-white" size={"30"} />
+          <FaCheck className="text-white" size={"35"} />
         </div>
       </div>
       {isModalOpen && (

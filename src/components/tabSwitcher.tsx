@@ -9,25 +9,28 @@ const TabSwitcher = ({
   handleTabClick,
   activeColor,
 }: TabSwitcherProps) => {
+  const btnsStyle = "px-4 py-2 focus:outline-none opacity-90 hover:opacity-100";
+
   return (
     <div className="flex items-center">
       <button
-        className="px-4 py-2 focus:outline-none"
+        className={btnsStyle}
         style={{
           backgroundColor:
-            activeTab === "tasks" ? `${activeColor} ` : "#f3f4f6",
-          color: activeTab === "tasks" ? "#1f2937" : "#9ca3af",
+            activeTab === "tasks" ? `${activeColor} ` : "#1E2022",
+
+          color: activeTab === "tasks" ? "aliceblue" : "gray",
         }}
         onClick={() => handleTabClick("tasks")}
       >
         Tasks
       </button>
       <button
-        className="px-4 py-2 focus:outline-none"
+        className={btnsStyle}
         style={{
           backgroundColor:
-            activeTab === "notes" ? `${activeColor} ` : "#f3f4f6",
-          color: activeTab === "notes" ? "#1f2937" : "#9ca3af",
+            activeTab === "notes" ? `${activeColor} ` : "#1E2022",
+          color: activeTab === "notes" ? "aliceblue" : "gray",
         }}
         onClick={() => handleTabClick("notes")}
       >
