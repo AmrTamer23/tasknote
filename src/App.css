@@ -65,9 +65,39 @@ html {
         background-color: #454a4db2;
 
 } 
-  
-  
 
+  
+.floatinBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #454A4D;
+  
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  
+  .floatinBtn:hover::before,
+  .floatinBtn:focus::before {
+    transform: scaleX(1);
+  }
+  
+.floatinBtn {
+    transition: color 300ms ease-in-out;
+    z-index: 1;
+}
+  
+  
+.floatinBtn:hover,
+.btn.btn-background-slide:focus {
+    color: white;
+}
+  
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
