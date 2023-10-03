@@ -72,24 +72,30 @@ const TasksLayout = () => {
           </span>
           <hr />
           <div className={`${taskListsStyle} today open`}>
-            {todayTasks.map((task) => (
-              <TaskItem
-                key={task.id}
-                task={
-                  {
-                    id: task.id,
-                    name: task.name,
-                    due: task.due,
-                    desc: task.desc,
-                    categoryId: task.categoryId,
-                  } as TaskValues
-                }
-                onDel={() => {
-                  deleteTask(task.id);
-                  playSound();
-                }}
-              />
-            ))}
+            {todayTasks.length === 0 ? (
+              <p className="text-xl text-center opacity-50 italic">
+                Looks like a task-free day today!
+              </p>
+            ) : (
+              todayTasks.map((task) => (
+                <TaskItem
+                  key={task.id}
+                  task={
+                    {
+                      id: task.id,
+                      name: task.name,
+                      due: task.due,
+                      desc: task.desc,
+                      categoryId: task.categoryId,
+                    } as TaskValues
+                  }
+                  onDel={() => {
+                    deleteTask(task.id);
+                    playSound();
+                  }}
+                />
+              ))
+            )}
           </div>
         </div>
         <div className="py-12 lg:px-24">
@@ -108,65 +114,66 @@ const TasksLayout = () => {
           <hr />
 
           <div className="flex flex-col pt-3 mt-3 tasks upcoming">
-            {upcomingTasks.map((task) => (
-              <TaskItem
-                key={task.id}
-                task={
-                  {
-                    id: task.id,
-                    name: task.name,
-                    due: task.due,
-                    desc: task.desc,
-                    categoryId: task.categoryId,
-                  } as TaskValues
-                }
-                onDel={() => {
-                  deleteTask(task.id);
-                  playSound();
-                }}
-              />
-            ))}
+            {upcomingTasks.length === 0 ? (
+              <p className="text-xl text-center opacity-50 italic">
+                Nothing on the horizon yet, stay prepared!
+              </p>
+            ) : (
+              upcomingTasks.map((task) => (
+                <TaskItem
+                  key={task.id}
+                  task={
+                    {
+                      id: task.id,
+                      name: task.name,
+                      due: task.due,
+                      desc: task.desc,
+                      categoryId: task.categoryId,
+                    } as TaskValues
+                  }
+                  onDel={() => {
+                    deleteTask(task.id);
+                    playSound();
+                  }}
+                />
+              ))
+            )}
           </div>
         </div>
-        <FloatingButton
-          Icon={FaPlus}
-          onClick={handleModal}
-          text="Add a Task"
+        <FloatingButton Icon={FaPlus} onClick={handleModal} text="Add a Task" />
+      </div>
+      {showModal && (
+        <Modal
+          onBackgroundClick={handleModal}
+          isFit={true}
           children={
-            showModal && (
-              <Modal
-                onBackgroundClick={handleModal}
-                children={
-                  <>
-                    <h4 className="text-2xl self-center">Add a Task</h4>
-                    <Formik<TaskValues>
-                      initialValues={{
-                        id: lastTaskId() + 1,
-                        name: "",
-                        due: new Date(),
-                        desc: "",
-                        categoryId: 0,
-                      }}
-                      onSubmit={(values) => {
-                        addTask({
-                          id: values.id,
-                          name: values.name,
-                          due: values.due,
-                          desc: values.desc,
-                          categoryId: values.categoryId,
-                        });
+            <>
+              <h4 className="text-2xl self-center">Add a Task</h4>
+              <Formik<TaskValues>
+                initialValues={{
+                  id: lastTaskId() + 1,
+                  name: "",
+                  due: new Date(),
+                  desc: "",
+                  categoryId: 0,
+                }}
+                onSubmit={(values) => {
+                  addTask({
+                    id: values.id,
+                    name: values.name,
+                    due: values.due,
+                    desc: values.desc,
+                    categoryId: values.categoryId,
+                  });
 
-                        if (values.name) handleModal();
-                      }}
-                      component={TaskCreationForm}
-                    />
-                  </>
-                }
+                  if (values.name) handleModal();
+                }}
+                component={TaskCreationForm}
               />
-            )
+            </>
           }
         />
-      </div>
+      )}
       <audio ref={audioRef} src={doneSound}></audio>
     </>
   );

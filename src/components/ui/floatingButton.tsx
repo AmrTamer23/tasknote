@@ -5,7 +5,6 @@ interface FloatingButtonProps {
   Icon: IconType;
   text: string;
   onClick: () => void;
-  children?: React.ReactNode;
 }
 
 function FloatingButton(props: FloatingButtonProps) {
@@ -18,8 +17,6 @@ function FloatingButton(props: FloatingButtonProps) {
         <props.Icon size={30} />
         <p className="text-lg">{props.text}</p>
       </button>
-
-      {props.children}
     </div>
   );
 }

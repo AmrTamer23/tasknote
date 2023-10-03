@@ -2,7 +2,7 @@ import React from "react";
 
 interface ModalProps {
   children?: React.ReactNode;
-  isCateForm?: boolean;
+  isFit?: boolean;
   onBackgroundClick: () => void;
 }
 
@@ -14,7 +14,7 @@ function Modal(props: ModalProps) {
     >
       <div
         className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-5 rounded-lg  flex flex-col gap-5 bg-[#222222] lg:w-3/6 w-5/6 ${
-          props.isCateForm ? "h-fit" : "h-3/4"
+          props.isFit ? "h-fit" : "h-3/4"
         }`}
         onClick={(e) => {
           e.stopPropagation();

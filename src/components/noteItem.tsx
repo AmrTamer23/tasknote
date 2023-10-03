@@ -3,7 +3,7 @@ import Modal from "./ui/modal";
 import { NoteValues } from "../utils/interfaces";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
-import ModalBody from "./modalBody";
+import ModalBody from "./modalViewBody";
 
 interface NoteItemProps {
   note: NoteValues;

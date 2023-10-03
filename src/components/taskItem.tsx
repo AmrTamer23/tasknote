@@ -5,7 +5,7 @@ import { CountdownDays } from "../utils/helpers";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 import { useState } from "react";
 import Modal from "./ui/modal";
-import ModalBody from "./modalBody";
+import ModalBody from "./modalViewBody";
 
 interface TaskItemProps {
   task: TaskValues;
