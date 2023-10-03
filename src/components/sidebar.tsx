@@ -21,6 +21,8 @@ const Sidebar = () => {
 
   const handleCategoryMenu = () => {
     setIsCategoryMenuOpen(!isCategoryMenuOpen);
+    const categories = document.querySelector(".categories");
+    categories?.classList.toggle("open");
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -59,27 +61,26 @@ const Sidebar = () => {
               <FaAngleLeft className="text-white text-lg self-center" />
             )}
           </li>
-          {isCategoryMenuOpen && (
-            <div className="flex flex-col w-full">
-              {categories.map((category) => (
-                <NavLink
-                  to={`/categories/${category.id}`}
-                  className={categoryItemStyle}
-                  key={category.id}
-                >
-                  <div
-                    className="w-5 h-5 rounded-full"
-                    style={{ backgroundColor: category.color }}
-                  ></div>
-                  <p className="subMenuLabel select-none">{category.name}</p>
-                </NavLink>
-              ))}
-              <li className={categoryItemStyle} onClick={handleModal}>
-                <IoMdAdd size={"20"} />
-                <p className="subMenuLabel select-none">Add Category</p>
-              </li>
-            </div>
-          )}
+
+          <div className="flex flex-col w-full categories">
+            {categories.map((category) => (
+              <NavLink
+                to={`/categories/${category.id}`}
+                className={categoryItemStyle}
+                key={category.id}
+              >
+                <div
+                  className="w-5 h-5 rounded-full"
+                  style={{ backgroundColor: category.color }}
+                ></div>
+                <p className="subMenuLabel select-none">{category.name}</p>
+              </NavLink>
+            ))}
+            <li className={categoryItemStyle} onClick={handleModal}>
+              <IoMdAdd size={"20"} />
+              <p className="subMenuLabel select-none">Add Category</p>
+            </li>
+          </div>
         </div>
       </nav>
       <div className="h-full w-0.5 bg-[#ffffff1b]"></div>

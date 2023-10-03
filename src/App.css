@@ -11,6 +11,20 @@
   transition: max-height 0.1s ease-in-out, opacity 0.3s ease-in-out;
 }
 
+.categories {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+  
+.categories.open {
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 0.1s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+
 h1, h2, h3, h4, h5, h6, p {
     color: aliceblue;
 }
@@ -35,22 +49,22 @@ html {
     scrollbar-width: 10px;
   }
   
-  ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 10px;
-  }
+}
   
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
      background-color: #202324; 
-     }
+}
   
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
      background-color: #454A4D; 
-  }
+}
 
-    ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
         background-color: #454a4db2;
 
-    } 
+} 
   
   
 
