@@ -14,7 +14,7 @@ const TabSwitcher = ({
   return (
     <div className="flex items-center">
       <button
-        className={btnsStyle}
+        className={`${btnsStyle} rounded-s-md`}
         style={{
           backgroundColor:
             activeTab === "tasks" ? `${activeColor} ` : "#1E2022",
@@ -26,7 +26,7 @@ const TabSwitcher = ({
         Tasks
       </button>
       <button
-        className={btnsStyle}
+        className={`${btnsStyle} rounded-e-md`}
         style={{
           backgroundColor:
             activeTab === "notes" ? `${activeColor} ` : "#1E2022",
