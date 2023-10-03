@@ -113,7 +113,7 @@ const TasksLayout = () => {
           </span>
           <hr />
 
-          <div className="flex flex-col pt-3 mt-3 tasks upcoming">
+          <div className="flex flex-col pt-3 mt-3 tasks upcoming open">
             {upcomingTasks.length === 0 ? (
               <p className="text-xl text-center opacity-50 italic">
                 Nothing on the horizon yet, stay prepared!
