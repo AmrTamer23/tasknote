@@ -30,6 +30,7 @@ const TaskCreationForm: (props: FormikProps<TaskValues>) => JSX.Element = ({
           type="date"
           name="due"
           value={values.due.toString()}
+          min={new Date().toISOString().split("T")[0]}
           onChange={handleChange}
           onBlur={handleBlur}
           className={`${textFieldsStyle} w-40`}
