@@ -5,6 +5,13 @@ import NoteItem from "../components/noteItem";
 import TaskItem from "../components/taskItem";
 import TabSwitcher from "../components/tabSwitcher";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import FloatingButton from "../components/ui/floatingButton";
+import Modal from "../components/ui/modal";
+import TaskCreationForm from "../components/taskCreationForm";
+import { TaskValues } from "../utils/interfaces";
+import { Formik } from "formik";
+import TaskAddModal from "../components/taskAddModal";
+import NoteAddModal from "../components/noteAddModal";
 
 const CategoryLayout = () => {
   let { categoryId } = useParams<{ categoryId: string }>();
@@ -23,6 +30,10 @@ const CategoryLayout = () => {
 
   const tasks = fetchTasksByCategoryId(parseInt(categoryId || ""));
   const notes = fetchNotesByCategoryId(parseInt(categoryId || ""));
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModal = () => setShowModal(!showModal);
 
   const [activeTab, setActiveTab] = useState<"tasks" | "notes">("tasks");
 
@@ -80,6 +91,22 @@ const CategoryLayout = () => {
           ),
         }[activeTab]
       }
+      <FloatingButton
+        onClick={handleModal}
+        text={activeTab === "tasks" ? "Add a Task" : "Add a Note"}
+      />
+      {showModal && activeTab === "tasks" && (
+        <TaskAddModal
+          handleModal={handleModal}
+          initCategoryId={parseInt(categoryId || "")}
+        />
+      )}
+      {showModal && activeTab === "notes" && (
+        <NoteAddModal
+          handleModal={handleModal}
+          initCategoryId={parseInt(categoryId || "")}
+        />
+      )}
     </div>
   );
 };

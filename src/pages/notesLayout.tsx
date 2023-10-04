@@ -9,6 +9,7 @@ import { NoteValues } from "../utils/interfaces";
 import NoteCreationForm from "../components/noteCreationForm";
 import removeSound from "../assets/sounds/remove-sound.mp3";
 import { TimeOfDay } from "../utils/helpers";
+import NoteAddModal from "../components/noteAddModal";
 
 function NotesLayout() {
   const [showModal, setShowModal] = useState(false);
@@ -67,47 +68,10 @@ function NotesLayout() {
               );
             })}
 
-            <FloatingButton
-              Icon={FaPlus}
-              onClick={handleModal}
-              text="Add a Note"
-            />
+            <FloatingButton onClick={handleModal} text="Add a Note" />
           </div>
         )}
-        {showModal && (
-          <Modal
-            onBackgroundClick={handleModal}
-            isFit={true}
-            children={
-              <>
-                <h4 className="text-2xl self-center">Add a Note</h4>
-                <Formik<NoteValues>
-                  initialValues={{
-                    id: lastNoteId() + 1,
-                    createdAt: new Date(),
-                    name: "",
-                    desc: "",
-                    categoryId: 0,
-                    color: "#333333",
-                  }}
-                  onSubmit={(values) => {
-                    addNote({
-                      id: values.id,
-                      createdAt: new Date(),
-                      name: values.name,
-                      desc: values.desc,
-                      categoryId: values.categoryId,
-                      color: values.color,
-                    });
-
-                    if (values.name && values.desc) handleModal();
-                  }}
-                  component={NoteCreationForm}
-                />
-              </>
-            }
-          />
-        )}
+        {showModal && <NoteAddModal handleModal={handleModal} />}
       </div>
       <audio src={removeSound} ref={audioRef}></audio>
     </>

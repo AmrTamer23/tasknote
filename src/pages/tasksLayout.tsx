@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import TaskItem from "../components/taskItem";
-import { FaAngleLeft, FaAngleDown, FaPlus } from "react-icons/fa";
+import { FaAngleLeft, FaAngleDown } from "react-icons/fa";
 import FloatingButton from "../components/ui/floatingButton";
 import Modal from "../components/ui/modal";
 import { TaskValues } from "../utils/interfaces";
@@ -9,6 +9,7 @@ import TaskCreationForm from "../components/taskCreationForm";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 import { CountdownDays, TimeOfDay } from "../utils/helpers";
 import doneSound from "../assets/sounds/done-sound.mp3";
+import TaskAddModal from "../components/taskAddModal";
 
 const TasksLayout = () => {
   const [isTodayTasksOpen, setIsTodayTasksOpen] = useState(true);
@@ -140,40 +141,9 @@ const TasksLayout = () => {
             )}
           </div>
         </div>
-        <FloatingButton Icon={FaPlus} onClick={handleModal} text="Add a Task" />
+        <FloatingButton onClick={handleModal} text="Add a Task" />
       </div>
-      {showModal && (
-        <Modal
-          onBackgroundClick={handleModal}
-          isFit={true}
-          children={
-            <>
-              <h4 className="text-2xl self-center">Add a Task</h4>
-              <Formik<TaskValues>
-                initialValues={{
-                  id: lastTaskId() + 1,
-                  name: "",
-                  due: new Date(),
-                  desc: "",
-                  categoryId: 0,
-                }}
-                onSubmit={(values) => {
-                  addTask({
-                    id: values.id,
-                    name: values.name,
-                    due: values.due,
-                    desc: values.desc,
-                    categoryId: values.categoryId,
-                  });
-
-                  if (values.name) handleModal();
-                }}
-                component={TaskCreationForm}
-              />
-            </>
-          }
-        />
-      )}
+      {showModal && <TaskAddModal handleModal={handleModal} />}
       <audio ref={audioRef} src={doneSound}></audio>
     </>
   );

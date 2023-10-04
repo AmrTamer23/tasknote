@@ -1,8 +1,8 @@
 import React from "react";
 import { IconType } from "react-icons";
+import { FaPlus } from "react-icons/fa";
 
 interface FloatingButtonProps {
-  Icon: IconType;
   text: string;
   onClick: () => void;
 }
@@ -14,7 +14,7 @@ function FloatingButton(props: FloatingButtonProps) {
   return (
     <div className="fixed bottom-5 right-5">
       <button className={containerStyle} onClick={props.onClick}>
-        <props.Icon size={30} />
+        <FaPlus size={30} />
         <p className="text-lg">{props.text}</p>
       </button>
     </div>

@@ -14,8 +14,7 @@ import { useLocalStorageContext } from "../context/LocalStorageContext";
 
 const Sidebar = () => {
   const menuItemStyle =
-    "flex items-center h-16 w-full  pl-5 pr-2 py-2 gap-1.5 hover:bg-gray-700 hover:cursor-pointer select-none";
-  const categoryItemStyle = `${menuItemStyle} h-12 pl-10`;
+    "flex items-center h-16 w-full   pr-2 py-2 gap-1.5 hover:bg-gray-700 hover:cursor-pointer select-none";
 
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
 
@@ -40,18 +39,18 @@ const Sidebar = () => {
           <img src={logoW} alt=" logo" />
         </div>
         <div className="flex flex-col items-start text-white">
-          <NavLink to="/" className={menuItemStyle}>
+          <NavLink to="/" className={`${menuItemStyle} pl-5`}>
             <MdTaskAlt size={"25"} />
             <p className="menuLabel">Tasks</p>
           </NavLink>
 
-          <NavLink to="notes" className={menuItemStyle}>
+          <NavLink to="notes" className={`${menuItemStyle} pl-5`}>
             <BsAsterisk size={"25"} />
             <p className="menuLabel">Notes</p>
           </NavLink>
 
           <li
-            className={`${menuItemStyle} flex justify-between items-center `}
+            className={`${menuItemStyle} pl-5 flex justify-between items-center `}
             onClick={handleCategoryMenu}
           >
             <h2 className="text-xl">Categories</h2>
@@ -66,7 +65,7 @@ const Sidebar = () => {
             {categories.map((category) => (
               <NavLink
                 to={`/categories/${category.id}`}
-                className={categoryItemStyle}
+                className={`${menuItemStyle} h-12 pl-10`}
                 key={category.id}
               >
                 <div
@@ -76,7 +75,7 @@ const Sidebar = () => {
                 <p className="subMenuLabel select-none">{category.name}</p>
               </NavLink>
             ))}
-            <li className={categoryItemStyle} onClick={handleModal}>
+            <li className={`${menuItemStyle} h-12 pl-10`} onClick={handleModal}>
               <IoMdAdd size={"20"} />
               <p className="subMenuLabel select-none">Add Category</p>
             </li>
