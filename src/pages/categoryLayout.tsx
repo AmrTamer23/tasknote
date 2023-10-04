@@ -26,6 +26,13 @@ const CategoryLayout = () => {
 
   const category = fetchCategoriesById(parseInt(categoryId || ""));
 
+  const handleDeleteCategory = () => {
+    setTimeout(() => {
+      deleteCategory(parseInt(categoryId || ""));
+      navigate("/");
+    }, 300);
+  };
+
   const tasks = fetchTasksByCategoryId(parseInt(categoryId || ""));
   const notes = fetchNotesByCategoryId(parseInt(categoryId || ""));
 
@@ -63,9 +70,8 @@ const CategoryLayout = () => {
               color="red"
               className="cursor-pointer"
               onClick={() => {
-                deleteCategory(parseInt(categoryId || ""));
                 playDelSound();
-                navigate("/");
+                handleDeleteCategory();
               }}
             />
           </span>
@@ -88,7 +94,14 @@ const CategoryLayout = () => {
               <div className="py-5 px-36 flex flex-col items-between justify-items-center align-items-center gap-2">
                 {tasks?.map((task) => {
                   return (
-                    <TaskItem key={task.id} task={task} onDel={deleteTask} />
+                    <TaskItem
+                      key={task.id}
+                      task={task}
+                      onDel={() => {
+                        deleteTask(task.id);
+                        playDoneSound();
+                      }}
+                    />
                   );
                 })}
               </div>
@@ -97,7 +110,14 @@ const CategoryLayout = () => {
               <div className="p-5 grid grid-cols-2 items-between justify-items-center align-items-center gap-5">
                 {notes?.map((note) => {
                   return (
-                    <NoteItem key={note.id} note={note} onDel={deleteNote} />
+                    <NoteItem
+                      key={note.id}
+                      note={note}
+                      onDel={() => {
+                        deleteNote(note.id);
+                        playDelSound();
+                      }}
+                    />
                   );
                 })}
               </div>
