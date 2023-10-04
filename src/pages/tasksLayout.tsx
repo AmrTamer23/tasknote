@@ -73,7 +73,7 @@ const TasksLayout = () => {
           <hr />
           <div className={`${taskListsStyle} today open`}>
             {todayTasks.length === 0 ? (
-              <p className="text-xl text-center opacity-50 italic">
+              <p className="text-xl text-center italic text-gray-400">
                 Looks like a task-free day today!
               </p>
             ) : (
@@ -115,7 +115,7 @@ const TasksLayout = () => {
 
           <div className="flex flex-col pt-3 mt-3 tasks upcoming open">
             {upcomingTasks.length === 0 ? (
-              <p className="text-xl text-center opacity-50 italic">
+              <p className="text-xl text-center italic text-gray-400">
                 Nothing on the horizon yet, stay prepared!
               </p>
             ) : (

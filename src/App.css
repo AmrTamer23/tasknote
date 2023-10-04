@@ -68,37 +68,6 @@ html {
 
 
   
-.sliderBtn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    background-color: #256e03;
-  
-    transition: transform 300ms ease-in-out;
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-  
-  .sliderBtn:hover::before,
-  .sliderBtn:focus::before {
-    transform: scaleX(1);
-  }
-  
-.sliderBtn {
-    transition: color 300ms ease-in-out;
-    z-index: 1;
-}
-  
-  
-.sliderBtn:hover,
-.sliderBtn:focus {
-    color: white;
-}
-  
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
