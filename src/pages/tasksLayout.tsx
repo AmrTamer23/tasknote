@@ -1,11 +1,8 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import TaskItem from "../components/taskItem";
 import { FaAngleLeft, FaAngleDown } from "react-icons/fa";
 import FloatingButton from "../components/ui/floatingButton";
-import Modal from "../components/ui/modal";
 import { TaskValues } from "../utils/interfaces";
-import { Formik } from "formik";
-import TaskCreationForm from "../components/taskCreationForm";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 import { CountdownDays, TimeOfDay } from "../utils/helpers";
 import doneSound from "../assets/sounds/done-sound.mp3";

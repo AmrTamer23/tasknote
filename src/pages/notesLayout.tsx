@@ -1,12 +1,9 @@
 import { useRef, useState } from "react";
-import { Formik } from "formik";
 import FloatingButton from "../components/ui/floatingButton";
 import { FaPlus } from "react-icons/fa";
 import NoteItem from "../components/noteItem";
-import Modal from "../components/ui/modal";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 import { NoteValues } from "../utils/interfaces";
-import NoteCreationForm from "../components/noteCreationForm";
 import removeSound from "../assets/sounds/remove-sound.mp3";
 import { TimeOfDay } from "../utils/helpers";
 import NoteAddModal from "../components/noteAddModal";

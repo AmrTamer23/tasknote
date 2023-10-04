@@ -2,7 +2,7 @@ import { FormikProps } from "formik";
 import { TaskValues } from "../utils/interfaces";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 
-const TaskCreationForm: (props: FormikProps<TaskValues>) => JSX.Element = ({
+const TaskAddForm: (props: FormikProps<TaskValues>) => JSX.Element = ({
   values,
   handleChange,
   handleBlur,
@@ -69,4 +69,4 @@ const TaskCreationForm: (props: FormikProps<TaskValues>) => JSX.Element = ({
   );
 };
 
-export default TaskCreationForm;
+export default TaskAddForm;

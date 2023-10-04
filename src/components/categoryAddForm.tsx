@@ -1,9 +1,7 @@
 import { FormikProps } from "formik";
 import { CategoryValues } from "../utils/interfaces";
 
-const categoryCreationForm: (
-  props: FormikProps<CategoryValues>
-) => JSX.Element = ({
+const categoryAddForm: (props: FormikProps<CategoryValues>) => JSX.Element = ({
   values,
   handleChange,
   handleBlur,
@@ -59,4 +57,4 @@ const categoryCreationForm: (
   );
 };
 
-export default categoryCreationForm;
+export default categoryAddForm;

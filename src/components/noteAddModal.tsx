@@ -1,9 +1,8 @@
 import { Formik } from "formik";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
-import { NoteValues, TaskValues } from "../utils/interfaces";
-import TaskCreationForm from "./taskCreationForm";
+import { NoteValues } from "../utils/interfaces";
 import Modal from "./ui/modal";
-import NoteCreationForm from "./noteCreationForm";
+import NoteAddForm from "./noteAddForm";
 
 const NoteAddModal = ({
   handleModal,
@@ -41,7 +40,7 @@ const NoteAddModal = ({
 
               if (values.name && values.desc) handleModal();
             }}
-            component={NoteCreationForm}
+            component={NoteAddForm}
           />
         </>
       }

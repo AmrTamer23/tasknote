@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 import Modal from "./ui/modal";
 import { Formik } from "formik";
 import { CategoryValues } from "../utils/interfaces";
-import categoryCreationForm from "./categoryCreationForm";
+import categoryAddForm from "./categoryAddForm";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 
 const Sidebar = () => {
@@ -95,7 +95,7 @@ const Sidebar = () => {
                   {
                     id: lastCategoryId() + 1,
                     name: "",
-                    color: "",
+                    color: "#FF5733",
                   } as CategoryValues
                 }
                 onSubmit={(values) => {
@@ -104,9 +104,9 @@ const Sidebar = () => {
                     name: values.name,
                     color: values.color,
                   });
-                  handleModal();
+                  if (values.name) handleModal();
                 }}
-                component={categoryCreationForm}
+                component={categoryAddForm}
               />
             </>
           }

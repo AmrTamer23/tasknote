@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 import { TaskValues } from "../utils/interfaces";
-import TaskCreationForm from "./taskCreationForm";
+import TaskAddForm from "./taskAddForm";
 import Modal from "./ui/modal";
 
 const TaskAddModal = ({
@@ -38,7 +38,7 @@ const TaskAddModal = ({
 
               if (values.name) handleModal();
             }}
-            component={TaskCreationForm}
+            component={TaskAddForm}
           />
         </>
       }

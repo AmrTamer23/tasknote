@@ -2,7 +2,7 @@ import { FormikProps } from "formik";
 import { NoteValues } from "../utils/interfaces";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 
-const NoteCreationForm: (props: FormikProps<NoteValues>) => JSX.Element = ({
+const NoteAddForm: (props: FormikProps<NoteValues>) => JSX.Element = ({
   values,
   handleChange,
   handleBlur,
@@ -81,4 +81,4 @@ const NoteCreationForm: (props: FormikProps<NoteValues>) => JSX.Element = ({
   );
 };
 
-export default NoteCreationForm;
+export default NoteAddForm;

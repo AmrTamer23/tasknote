@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "./ui/modal";
 import { NoteValues } from "../utils/interfaces";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -20,8 +20,6 @@ function NoteItem(props: NoteItemProps) {
   const { fetchCategoriesById } = useLocalStorageContext();
 
   const category = fetchCategoriesById(props.note.categoryId);
-
-  const date = new Date(props.note.createdAt);
 
   return (
     <>
