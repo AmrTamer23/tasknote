@@ -33,7 +33,7 @@ function App() {
                 </span>
 
                 <main
-                  className="lg:ml-52 md:px-14 px-5 py-5 md:w-full min-h-screen flex flex-col"
+                  className="lg:ml-52 md:px-14 px-5 py-5 w-full min-h-screen flex flex-col"
                   onClick={() => {
                     if (isSidebarOpen) setIsSidebarOpen(false);
                   }}
