@@ -1,6 +1,4 @@
-# Project Name
-
-Tasknote
+# Tasknote
 
 ## Table of Contents
 
