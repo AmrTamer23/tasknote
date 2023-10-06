@@ -23,9 +23,14 @@ function App() {
           element={
             <LocalStorageProvider>
               <div className="flex bg-[#0E0F0F]">
-                {isSidebarOpen && (
-                  <Sidebar setIsSidebarOpen={setIsSidebarOpen} />
-                )}
+                <span className="block lg:hidden">
+                  {isSidebarOpen && (
+                    <Sidebar setIsSidebarOpen={setIsSidebarOpen} />
+                  )}
+                </span>
+                <span className="hidden lg:block">
+                  <Sidebar />
+                </span>
 
                 <main
                   className="lg:ml-52 md:px-14 px-5 py-5 md:w-full min-h-screen flex flex-col"
