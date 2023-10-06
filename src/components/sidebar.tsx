@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import logoW from "../assets/imgs/logoW.png";
 import { BsAsterisk } from "react-icons/bs";
 import { IoMdAdd } from "react-icons/io";
@@ -12,9 +12,13 @@ import { CategoryValues } from "../utils/interfaces";
 import categoryAddForm from "./categoryAddForm";
 import { useLocalStorageContext } from "../context/LocalStorageContext";
 
-const Sidebar = () => {
+const Sidebar = ({
+  setIsSidebarOpen,
+}: {
+  setIsSidebarOpen?: Dispatch<SetStateAction<boolean>>;
+}) => {
   const menuItemStyle =
-    "flex items-center h-16 w-full   pr-2 py-2 gap-1.5 hover:bg-gray-700 hover:cursor-pointer select-none";
+    "flex items-center h-16 w-full pr-2 py-2 gap-1.5 hover:bg-gray-700 hover:cursor-pointer select-none";
 
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
 
@@ -32,19 +36,29 @@ const Sidebar = () => {
   const { categories, addCategory, lastCategoryId } = useLocalStorageContext();
 
   return (
-    <aside className="h-screen fixed hidden md:flex">
+    <aside
+      className={`h-screen mt-14 md:mt-0 fixed md:flex shadow-black shadow-2xl `}
+    >
       <nav className="bg-[#151617] w-52 flex flex-col">
         <div className="p-5 w-52 self-center">
           {" "}
           <img src={logoW} alt=" logo" />
         </div>
         <div className="flex flex-col items-start text-white">
-          <NavLink to="/" className={`${menuItemStyle} pl-5`}>
+          <NavLink
+            to="/"
+            className={`${menuItemStyle} pl-5`}
+            onClick={() => setIsSidebarOpen && setIsSidebarOpen(false)}
+          >
             <MdTaskAlt size={"25"} />
             <p className="menuLabel">Tasks</p>
           </NavLink>
 
-          <NavLink to="notes" className={`${menuItemStyle} pl-5`}>
+          <NavLink
+            to="notes"
+            className={`${menuItemStyle} pl-5`}
+            onClick={() => setIsSidebarOpen && setIsSidebarOpen(false)}
+          >
             <BsAsterisk size={"25"} />
             <p className="menuLabel">Notes</p>
           </NavLink>
@@ -66,6 +80,7 @@ const Sidebar = () => {
               <NavLink
                 to={`/categories/${category.id}`}
                 className={`${menuItemStyle} h-12 pl-10`}
+                onClick={() => setIsSidebarOpen && setIsSidebarOpen(false)}
                 key={category.id}
               >
                 <div
@@ -82,7 +97,7 @@ const Sidebar = () => {
           </div>
         </div>
       </nav>
-      <div className="h-full w-0.5 bg-[#ffffff1b]"></div>
+      <div className="h-full w-0.5 bg-[#ffffff1b] invisible md:visible"></div>
       {isModalOpen && (
         <Modal
           onBackgroundClick={handleModal}

@@ -62,7 +62,7 @@ const TaskItem = (props: TaskItemProps) => {
         </div>
 
         <div
-          className="bg-emerald-800 opacity-80 w-1/12 rounded-r-lg h-full flex justify-center items-center cursor-pointer"
+          className="bg-emerald-800 opacity-80 lg:w-1/12 w-1/6 rounded-r-lg h-full flex justify-center items-center cursor-pointer"
           onClick={() => props.onDel(props.task.id)}
         >
           <FaCheck className="text-white" size={"35"} />

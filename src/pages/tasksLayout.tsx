@@ -29,7 +29,7 @@ const TasksLayout = () => {
 
   const handleModal = () => setShowModal(!showModal);
 
-  const { tasks, addTask, lastTaskId, deleteTask } = useLocalStorageContext();
+  const { tasks, deleteTask } = useLocalStorageContext();
 
   const todayTasks = tasks.filter((task) => {
     if (CountdownDays(new Date(task.due)) === "Today") return task;
@@ -52,7 +52,7 @@ const TasksLayout = () => {
     <>
       <div className="flex flex-col">
         <h1 className="font-semibold text-4xl">Good {TimeOfDay()}!</h1>
-        <div className="py-12 lg:px-24">
+        <div className="py-12 lg:px-24 ">
           <span
             className="flex justify-between pb-3"
             onClick={handleTodayTasks}
@@ -60,7 +60,7 @@ const TasksLayout = () => {
             <h2 className="text-3xl font-normal self-start cursor-pointer">
               Today
             </h2>
-            <div className="flex justify-center items-end cursor-pointer">
+            <div className="flex justify-center items-end cursor-pointer ">
               {isTodayTasksOpen ? (
                 <FaAngleDown size={"25"} className="text-white " />
               ) : (
@@ -103,9 +103,9 @@ const TasksLayout = () => {
             </h2>
             <div className="flex justify-center items-end cursor-pointer">
               {isUpTasksOpen ? (
-                <FaAngleDown size={"25"} className="text-white " />
-              ) : (
                 <FaAngleLeft size={"25"} className="text-white " />
+              ) : (
+                <FaAngleDown size={"25"} className="text-white " />
               )}
             </div>
           </span>
