@@ -91,7 +91,7 @@ const CategoryLayout = () => {
         {
           {
             tasks: (
-              <div className="py-5  px-2 lg:px-36 flex flex-col items-between justify-items-center align-items-center gap-2 ">
+              <div className="lg:py-5  p-2 lg:px-36 flex flex-col items-between justify-items-center align-items-center gap-2 ">
                 {tasks?.map((task) => {
                   return (
                     <TaskItem
@@ -107,7 +107,7 @@ const CategoryLayout = () => {
               </div>
             ),
             notes: (
-              <div className="p-5 grid grid-cols-2 items-between justify-items-center align-items-center gap-5">
+              <div className="lg:p-5 p-1 grid grid-cols-2 items-between justify-items-center align-items-center gap-5">
                 {notes?.map((note) => {
                   return (
                     <NoteItem

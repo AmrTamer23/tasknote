@@ -19,7 +19,10 @@ const TabSwitcher = ({
           backgroundColor:
             activeTab === "tasks" ? `${activeColor} ` : "#1E2022",
 
-          color: activeTab === "tasks" ? "aliceblue" : "gray",
+          color:
+            activeTab === "tasks"
+              ? `${activeColor === "#FFFF33" ? "black" : "aliceblue"}`
+              : "gray",
         }}
         onClick={() => handleTabClick("tasks")}
       >
@@ -30,7 +33,10 @@ const TabSwitcher = ({
         style={{
           backgroundColor:
             activeTab === "notes" ? `${activeColor} ` : "#1E2022",
-          color: activeTab === "notes" ? "aliceblue" : "gray",
+          color:
+            activeTab === "notes"
+              ? `${activeColor === "#FFFF33" ? "black" : "aliceblue"}`
+              : "gray",
         }}
         onClick={() => handleTabClick("notes")}
       >
