@@ -107,7 +107,7 @@ const CategoryLayout = () => {
               </div>
             ),
             notes: (
-              <div className="lg:p-5 p-1 grid grid-cols-2 items-between justify-items-center align-items-center gap-5">
+              <div className="lg:p-5 p-1 grid lg:grid-cols-2 items-between justify-items-center align-items-center gap-5">
                 {notes?.map((note) => {
                   return (
                     <NoteItem
