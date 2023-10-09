@@ -91,7 +91,7 @@ const CategoryLayout = () => {
         {
           {
             tasks: (
-              <div className="py-5 px-36 flex flex-col items-between justify-items-center align-items-center gap-2">
+              <div className="py-5  px-2 lg:px-36 flex flex-col items-between justify-items-center align-items-center gap-2 ">
                 {tasks?.map((task) => {
                   return (
                     <TaskItem

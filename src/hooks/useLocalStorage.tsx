@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { NoteValues, CategoryValues, TaskValues } from "../utils/interfaces";
 
-/*
-This Custom hook is used to add, delete and get Tasks, Notes and Categories from the local storage.
-*/
 function useLocalStorage() {
   const [notes, setNotes] = useState<NoteValues[]>(
     localStorage.getItem("notes")
